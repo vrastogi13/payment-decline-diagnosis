@@ -107,8 +107,9 @@ python make_varun_workbook.py . decline_kb_schema.sql decline_kb_seed.sql Declin
   report or scenario identifier appears in them.
 - **The lookup table and the answer key share a source.** Both are derived from the knowledge base, which is why variant A
   is perfect on standard cases. The hard cases are where context changes the right action.
-- **Visa reattempt limit.** The rule used here (at most 15 reattempts in 30 days) should be checked against Visa's current
-  published rules before it is relied on.
+- **Visa reattempt limit.** The benchmark uses Visa's published rule of at most 15 reattempts in 30 days for declines the issuer
+  cannot approve at this time ("Updates to Rules for Declined Transaction Resubmission and Use of Authorization Response Codes",
+  Visa Rules, September 2020, effective April 2021). Network rules change; check the current rules before relying on them.
 - **Hallucination flags** are automated and only detect codes that do not exist on the scenario's network.
   Misreadings of real codes appear as category errors instead.
 - **Card-network documentation changes.** The knowledge base is a snapshot of public sources as of 2026; each code links to its source.
