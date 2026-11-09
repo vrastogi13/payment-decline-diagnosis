@@ -1,0 +1,6 @@
+# Minimum versions. To record the exact environment used, run `pip freeze > requirements-lock.txt` in your environment and commit it too.
+duckdb>=1.0
+numpy>=1.24
+openai>=1.40
+openpyxl>=3.1
+sentence-transformers>=3.0   # variant D with --embed local only

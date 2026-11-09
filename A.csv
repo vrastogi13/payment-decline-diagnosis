@@ -1,0 +1,399 @@
+scenario_id,pred_category,pred_action,pred_retry,pred_escalate,explanation,latency_ms,cost_usd
+DB-001,restricted_card,request_new_payment,no,no,Response code 62: Issuer has restricted where or how the card can be used.,1,0
+DB-002,lost_stolen,do_not_retry,no,no,"Response code 04: Issuer wants the card retained, often because it may be counterfeit or stolen.",1,0
+DB-003,invalid_account,contact_issuer,conditional,no,Response code 78: Account is invalid or the new card has not been activated.,1,0
+DB-004,,escalate_to_engineer,no,yes,Code 530 is not in the lookup table.,1,0
+DB-005,invalid_data,fix_request_data,conditional,no,Response code 13: Amount is invalid or in the wrong format for this card.,1,0
+DB-006,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-007,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-008,fraud_suspected,do_not_retry,conditional,no,Response code 83: Issuer declined for fraud or security reasons; check the merchant advice code.,1,0
+DB-009,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-010,invalid_data,fix_request_data,conditional,no,Response code 122: The card security code was wrong.,1,0
+DB-011,invalid_account,contact_issuer,conditional,no,Response code 78: Account is invalid or the new card has not been activated.,1,0
+DB-012,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-013,,escalate_to_engineer,no,yes,Code 572 is not in the lookup table.,1,0
+DB-014,restricted_card,do_not_retry,no,no,Response code 93: Issuer cannot complete the transaction for legal reasons.,1,0
+DB-015,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-016,invalid_account,request_new_payment,no,no,Response code 52: No checking account is linked to the card.,1,0
+DB-017,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-018,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-019,limit_exceeded,request_new_payment,conditional,no,Response code 61: Amount limit exceeded. Card has exceeded an amount or frequency limit.,1,0
+DB-020,invalid_account,request_new_payment,no,no,"Response code 92: Unable to route. Card or account cannot be found, routed or used.",1,0
+DB-021,issuer_generic,contact_issuer,conditional,no,Response code 05: Do not honor. Issuer declined without a specific reason.,1,0
+DB-022,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-023,expired_card,update_credential,conditional,no,Response code 187: Issuer has replaced the card.,1,0
+DB-024,invalid_account,request_new_payment,no,no,"Response code 92: Unable to route. Card or account cannot be found, routed or used.",1,0
+DB-025,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-026,,escalate_to_engineer,no,yes,Code 510 is not in the lookup table.,1,0
+DB-027,limit_exceeded,retry_later,conditional,no,Response code 65: Card has exceeded the allowed number of transactions.,1,0
+DB-028,issuer_generic,contact_issuer,conditional,no,Response code 82: Issuer declined on policy grounds; check the merchant advice code.,1,0
+DB-029,limit_exceeded,request_new_payment,conditional,no,Response code 61: Transaction exceeds the card amount limit.,1,0
+DB-030,invalid_account,request_new_payment,no,no,Response code 52: No checking account is linked to the card.,1,0
+DB-031,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-032,lost_stolen,do_not_retry,no,no,Response code 41: Card has been reported lost.,1,0
+DB-033,invalid_account,contact_issuer,conditional,no,Response code 78: Account is invalid or the new card has not been activated.,1,0
+DB-034,issuer_unavailable,retry_later,yes,no,Response code 911: The issuer did not respond in time.,1,0
+DB-035,insufficient_funds,retry_later,yes,no,Response code 116: Not enough funds or credit available.,1,0
+DB-036,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-037,invalid_account,request_new_payment,no,no,Response code 15: Card number falls outside any issuer range the network supports.,1,0
+DB-038,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-039,expired_card,update_credential,conditional,no,Response code 187: Issuer has replaced the card.,1,0
+DB-040,,escalate_to_engineer,no,yes,Code 903 is not in the lookup table.,1,0
+DB-041,,escalate_to_engineer,no,yes,Code 402 is not in the lookup table.,1,0
+DB-042,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-043,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-044,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-045,authentication_required,retry_with_authentication,conditional,no,Response code 65: Issuer requires authentication; in some regions this code means an activity limit was exceeded.,1,0
+DB-046,lost_stolen,do_not_retry,no,no,"Response code 200: Issuer wants the card retained, possibly counterfeit or stolen.",1,0
+DB-047,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-048,,escalate_to_engineer,no,yes,Code 612 is not in the lookup table.,1,0
+DB-049,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-050,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-051,expired_card,update_credential,conditional,no,Response code 187: Issuer has replaced the card.,1,0
+DB-052,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-053,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-054,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-055,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-056,restricted_card,request_new_payment,no,no,Response code 9G: The cardholder has blocked the card.,1,0
+DB-057,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-058,invalid_account,request_new_payment,no,no,Response code 111: Issuer cannot validate the account number.,1,0
+DB-059,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-060,issuer_unavailable,retry_later,yes,no,Response code 19: Issuer cannot process the transaction right now.,1,0
+DB-061,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-062,,escalate_to_engineer,no,yes,Code 530 is not in the lookup table.,1,0
+DB-063,issuer_generic,contact_issuer,conditional,no,Response code 82: Issuer declined on policy grounds; check the merchant advice code.,1,0
+DB-064,issuer_generic,contact_issuer,conditional,no,Response code 82: Issuer declined on policy grounds; check the merchant advice code.,1,0
+DB-065,invalid_account,request_new_payment,no,no,Response code 14: Issuer cannot match the card number to an account.,1,0
+DB-066,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-067,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-068,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-069,,escalate_to_engineer,no,yes,Code 570 is not in the lookup table.,1,0
+DB-070,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-071,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-072,fraud_suspected,do_not_retry,no,no,Response code 63: Security violation. Issuer or acquirer flagged fraud or a security concern.,1,0
+DB-073,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-074,invalid_data,fix_request_data,conditional,no,"Response code N7: AVS or CID mismatch. Request data is wrong, missing or duplicated.",1,0
+DB-075,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-076,,escalate_to_engineer,no,yes,Code 903 is not in the lookup table.,1,0
+DB-077,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-078,restricted_card,request_new_payment,no,no,"Response code 57: Not permitted to cardholder. Issuer does not allow this transaction for this card, merchant or terminal.",1,0
+DB-079,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-080,restricted_card,request_new_payment,no,no,Response code 12: Issuer does not allow this type of transaction on the account.,1,0
+DB-081,invalid_data,fix_request_data,conditional,yes,Response code 30: Issuer could not read the transaction message.,1,0
+DB-082,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-083,,escalate_to_engineer,no,yes,Code 903 is not in the lookup table.,1,0
+DB-084,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-085,lost_stolen,do_not_retry,no,no,"Response code 04: Issuer wants the card retained, often because it may be counterfeit or stolen.",1,0
+DB-086,invalid_data,fix_request_data,conditional,yes,Response code 181: Issuer could not read the transaction.,1,0
+DB-087,authentication_required,retry_with_authentication,conditional,no,Response code 65: Issuer requires authentication; in some regions this code means an activity limit was exceeded.,1,0
+DB-088,invalid_account,request_new_payment,no,no,Response code 14: Issuer cannot match the card number to an account.,1,0
+DB-089,invalid_data,fix_request_data,conditional,no,Response code N7: The card security code did not match.,1,0
+DB-090,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-091,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-092,issuer_generic,contact_issuer,no,no,Response code 01: Issuer wants the cardholder to contact it before approving.,1,0
+DB-093,invalid_data,fix_request_data,conditional,no,Response code 122: The card security code was wrong.,1,0
+DB-094,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-095,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-096,issuer_generic,contact_issuer,conditional,no,Response code 100: Generic decline with no specific reason.,1,0
+DB-097,fraud_suspected,do_not_retry,conditional,no,Response code 83: Issuer declined for fraud or security reasons; check the merchant advice code.,1,0
+DB-098,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-099,issuer_generic,contact_issuer,conditional,no,Response code 82: Issuer declined on policy grounds; check the merchant advice code.,1,0
+DB-100,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-101,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-102,restricted_card,request_new_payment,no,no,Response code 58: Issuer does not allow this transaction from this merchant or terminal.,1,0
+DB-103,,escalate_to_engineer,no,yes,Code 571 is not in the lookup table.,1,0
+DB-104,authentication_required,retry_with_authentication,yes,no,Response code 130: Issuer needs extra customer verification.,1,0
+DB-105,invalid_account,request_new_payment,no,no,"Response code 92: Transaction could not be routed to an issuer, for example a test card used in production.",1,0
+DB-106,lost_stolen,do_not_retry,no,no,Response code 43: Card has been reported stolen.,1,0
+DB-107,restricted_card,request_new_payment,no,no,Response code 58: Issuer does not allow this transaction from this merchant or terminal.,1,0
+DB-108,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-109,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-110,,escalate_to_engineer,no,yes,Code 350 is not in the lookup table.,1,0
+DB-111,issuer_unavailable,retry_later,yes,no,Response code 19: Issuer cannot process the transaction right now.,1,0
+DB-112,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-113,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-114,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-115,restricted_card,request_new_payment,no,no,"Response code 58: Not permitted to terminal. Issuer does not allow this transaction for this card, merchant or terminal.",1,0
+DB-116,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-117,issuer_generic,contact_issuer,conditional,no,Response code 82: Issuer declined on policy grounds; check the merchant advice code.,1,0
+DB-118,expired_card,update_credential,conditional,no,Response code 79: Card data is invalid or out of date; check the merchant advice code.,1,0
+DB-119,restricted_card,do_not_retry,no,no,Response code 93: Issuer cannot complete the transaction for legal reasons.,1,0
+DB-120,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-121,,escalate_to_engineer,no,yes,Code 510 is not in the lookup table.,1,0
+DB-122,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-123,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-124,fraud_suspected,do_not_retry,no,no,"Response code 82: Card or cryptogram verification failed, such as CVV, CAM or CAVV checks.",1,0
+DB-125,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-126,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-127,lost_stolen,do_not_retry,no,no,Response code 43: Card has been reported stolen.,1,0
+DB-128,lost_stolen,do_not_retry,no,no,Response code 41: Card has been reported lost.,1,0
+DB-129,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-130,recurring_cancelled,stop_recurring,no,no,Response code R1: Cardholder revoked authorization for recurring payments to this merchant.,1,0
+DB-131,limit_exceeded,request_new_payment,conditional,no,Response code 61: Transaction exceeds the card amount limit.,1,0
+DB-132,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-133,invalid_account,request_new_payment,no,no,Response code 52: No checking account is linked to the card.,1,0
+DB-134,lost_stolen,do_not_retry,no,no,Response code 41: Lost card. Issuer wants the card retained or has flagged it lost or stolen.,1,0
+DB-135,issuer_unavailable,retry_later,yes,yes,Response code 912: The issuer system is unavailable.,1,0
+DB-136,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-137,issuer_generic,contact_issuer,conditional,no,Response code 82: Issuer declined on policy grounds; check the merchant advice code.,1,0
+DB-138,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-139,issuer_generic,contact_issuer,no,no,Response code 01: Issuer wants the cardholder to contact it before approving.,1,0
+DB-140,limit_exceeded,retry_later,conditional,no,Response code 65: Card has exceeded the allowed number of transactions.,1,0
+DB-141,invalid_data,escalate_to_engineer,no,yes,"Response code 94: Duplicate transmission. Request data is wrong, missing or duplicated.",1,0
+DB-142,expired_card,update_credential,conditional,no,Response code 101: Card has expired or the expiry date is invalid.,1,0
+DB-143,authentication_required,retry_with_authentication,yes,no,Response code 1A: Issuer requires strong customer authentication.,1,0
+DB-144,lost_stolen,do_not_retry,no,no,"Response code 07: Issuer wants the card retained under special conditions, often suspected fraud.",1,0
+DB-145,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-146,fraud_suspected,do_not_retry,conditional,no,Response code 83: Issuer declined for fraud or security reasons; check the merchant advice code.,1,0
+DB-147,issuer_unavailable,retry_later,yes,no,Response code 19: Issuer cannot process the transaction right now.,1,0
+DB-148,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-149,issuer_generic,contact_issuer,conditional,no,Response code 82: Issuer declined on policy grounds; check the merchant advice code.,1,0
+DB-150,expired_card,update_credential,conditional,no,Response code 79: Card data is invalid or out of date; check the merchant advice code.,1,0
+DB-151,lost_stolen,do_not_retry,no,no,"Response code 200: Issuer wants the card retained, possibly counterfeit or stolen.",1,0
+DB-152,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-153,merchant_config,check_merchant_setup,no,yes,Response code 03: Issuer does not recognize or accept the merchant for this transaction.,1,0
+DB-154,issuer_unavailable,retry_later,yes,yes,Response code 87: Network unavailable. Issuer or network could not respond in time.,1,0
+DB-155,issuer_unavailable,retry_later,yes,no,Response code 19: Issuer cannot process the transaction right now.,1,0
+DB-156,issuer_generic,contact_issuer,conditional,no,Response code 05: Do not honor. Issuer declined without a specific reason.,1,0
+DB-157,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-158,issuer_unavailable,retry_later,yes,no,Response code 80: Issuing bank could not be reached.,1,0
+DB-159,invalid_account,contact_issuer,conditional,no,Response code 78: Account is invalid or the new card has not been activated.,1,0
+DB-160,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-161,issuer_unavailable,retry_later,yes,no,Response code 80: Issuing bank could not be reached.,1,0
+DB-162,invalid_data,fix_request_data,conditional,yes,Response code 30: Issuer could not read the transaction message.,1,0
+DB-163,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-164,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-165,invalid_account,request_new_payment,no,no,"Response code 92: Transaction could not be routed to an issuer, for example a test card used in production.",1,0
+DB-166,,escalate_to_engineer,no,yes,Code 350 is not in the lookup table.,1,0
+DB-167,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-168,limit_exceeded,retry_later,conditional,no,Response code 65: Card has exceeded the allowed number of transactions.,1,0
+DB-169,,escalate_to_engineer,no,yes,Code 301 is not in the lookup table.,1,0
+DB-170,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-171,,escalate_to_engineer,no,yes,Code 519 is not in the lookup table.,1,0
+DB-172,lost_stolen,do_not_retry,no,no,Response code 41: Card has been reported lost.,1,0
+DB-173,expired_card,update_credential,conditional,no,Response code 79: Card data is invalid or out of date; check the merchant advice code.,1,0
+DB-174,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-175,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-176,invalid_data,fix_request_data,conditional,no,Response code 13: Amount is invalid or in the wrong format for this card.,1,0
+DB-177,authentication_required,retry_with_authentication,conditional,no,Response code 65: Issuer requires authentication; in some regions this code means an activity limit was exceeded.,1,0
+DB-178,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-179,lost_stolen,do_not_retry,no,no,Response code 41: Card has been reported lost.,1,0
+DB-180,,escalate_to_engineer,no,yes,Code 301 is not in the lookup table.,1,0
+DB-181,fraud_suspected,do_not_retry,no,no,Response code 34: Issuer suspects fraud.,1,0
+DB-182,issuer_unavailable,retry_later,yes,no,Response code 80: Issuing bank could not be reached.,1,0
+DB-183,invalid_data,fix_request_data,conditional,no,"Response code N7: AVS or CID mismatch. Request data is wrong, missing or duplicated.",1,0
+DB-184,,escalate_to_engineer,no,yes,Code 401 is not in the lookup table.,1,0
+DB-185,lost_stolen,do_not_retry,no,no,Response code 43: Card has been reported stolen.,1,0
+DB-186,restricted_card,request_new_payment,no,no,Response code 115: Issuer does not allow this transaction type.,1,0
+DB-187,lost_stolen,do_not_retry,no,no,"Response code 07: Issuer wants the card retained under special conditions, often suspected fraud.",1,0
+DB-188,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-189,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-190,,escalate_to_engineer,no,yes,Code 509 is not in the lookup table.,1,0
+DB-191,,escalate_to_engineer,no,yes,Code 902 is not in the lookup table.,1,0
+DB-192,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-193,invalid_data,fix_request_data,conditional,no,Response code N7: The card security code did not match.,1,0
+DB-194,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-195,invalid_data,fix_request_data,conditional,yes,Response code 181: Issuer could not read the transaction.,1,0
+DB-196,limit_exceeded,retry_later,conditional,no,Response code 65: Card has exceeded the allowed number of transactions.,1,0
+DB-197,expired_card,update_credential,conditional,no,Response code 101: Card has expired or the expiry date is invalid.,1,0
+DB-198,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-199,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-200,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-201,invalid_data,fix_request_data,conditional,yes,Response code 110: Amount is in the wrong format.,1,0
+DB-202,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-203,invalid_account,contact_issuer,conditional,no,Response code 78: Account is invalid or the new card has not been activated.,1,0
+DB-204,,escalate_to_engineer,no,yes,Code 510 is not in the lookup table.,1,0
+DB-205,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-206,restricted_card,request_new_payment,no,no,Response code 9G: The cardholder has blocked the card.,1,0
+DB-207,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-208,limit_exceeded,request_new_payment,conditional,no,Response code 61: Transaction exceeds the card amount limit.,1,0
+DB-209,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-210,fraud_suspected,do_not_retry,no,no,Response code 59: Issuer suspects the transaction is fraudulent.,1,0
+DB-211,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-212,expired_card,update_credential,conditional,no,Response code 79: Card data is invalid or out of date; check the merchant advice code.,1,0
+DB-213,recurring_cancelled,stop_recurring,no,no,Response code R3: All recurring payments on this card have been cancelled.,1,0
+DB-214,invalid_account,request_new_payment,no,no,"Response code 92: Transaction could not be routed to an issuer, for example a test card used in production.",1,0
+DB-215,,escalate_to_engineer,no,yes,Code 502 is not in the lookup table.,1,0
+DB-216,limit_exceeded,request_new_payment,conditional,no,Response code 61: Transaction exceeds the card amount limit.,1,0
+DB-217,issuer_unavailable,retry_later,yes,no,Response code 19: Re-enter transaction. Issuer or network could not respond in time.,1,0
+DB-218,fraud_suspected,do_not_retry,no,no,Response code 59: Issuer suspects the transaction is fraudulent.,1,0
+DB-219,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-220,limit_exceeded,request_new_payment,conditional,no,Response code 61: Transaction exceeds the card amount limit.,1,0
+DB-221,invalid_data,fix_request_data,conditional,yes,Response code 30: Issuer could not read the transaction message.,1,0
+DB-222,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-223,fraud_suspected,do_not_retry,no,no,Response code 59: Issuer suspects the transaction is fraudulent.,1,0
+DB-224,limit_exceeded,request_new_payment,conditional,no,Response code 61: Transaction exceeds the card amount limit.,1,0
+DB-225,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-226,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-227,invalid_data,fix_request_data,conditional,no,Response code 13: Amount is invalid or in the wrong format for this card.,1,0
+DB-228,,escalate_to_engineer,no,yes,Code 530 is not in the lookup table.,1,0
+DB-229,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-230,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-231,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-232,,escalate_to_engineer,no,yes,Code 571 is not in the lookup table.,1,0
+DB-233,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-234,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-235,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-236,fraud_suspected,do_not_retry,conditional,no,Response code 83: Issuer declined for fraud or security reasons; check the merchant advice code.,1,0
+DB-237,,escalate_to_engineer,no,yes,Code 596 is not in the lookup table.,1,0
+DB-238,issuer_unavailable,retry_later,yes,no,Response code 19: Issuer cannot process the transaction right now.,1,0
+DB-239,,escalate_to_engineer,no,yes,Code 806 is not in the lookup table.,1,0
+DB-240,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-241,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-242,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-243,fraud_suspected,do_not_retry,no,no,Response code 59: Issuer suspects the transaction is fraudulent.,1,0
+DB-244,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-245,restricted_card,request_new_payment,no,no,Response code 5C: Issuer does not support or has blocked this transaction.,1,0
+DB-246,recurring_cancelled,stop_recurring,no,no,Response code R1: Cardholder revoked authorization for recurring payments to this merchant.,1,0
+DB-247,authentication_required,retry_with_authentication,yes,no,Response code 130: Issuer needs extra customer verification.,1,0
+DB-248,,escalate_to_engineer,no,yes,Code 301 is not in the lookup table.,1,0
+DB-249,issuer_unavailable,retry_later,yes,yes,Response code 96: System malfunction. Issuer or network could not respond in time.,1,0
+DB-250,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-251,insufficient_funds,retry_later,yes,no,Response code 116: Not enough funds or credit available.,1,0
+DB-252,limit_exceeded,request_new_payment,conditional,no,Response code 61: Transaction exceeds the card amount limit.,1,0
+DB-253,restricted_card,request_new_payment,no,no,Response code 62: Issuer has restricted where or how the card can be used.,1,0
+DB-254,restricted_card,do_not_retry,no,no,Response code 93: Issuer cannot complete the transaction for legal reasons.,1,0
+DB-255,lost_stolen,do_not_retry,no,no,Response code 43: Stolen card. Issuer wants the card retained or has flagged it lost or stolen.,1,0
+DB-256,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-257,,escalate_to_engineer,no,yes,Code 304 is not in the lookup table.,1,0
+DB-258,invalid_data,fix_request_data,conditional,no,Response code 13: Amount is invalid or in the wrong format for this card.,1,0
+DB-259,lost_stolen,do_not_retry,no,no,Response code 41: Card has been reported lost.,1,0
+DB-260,limit_exceeded,retry_later,conditional,no,Response code 65: Card has exceeded the allowed number of transactions.,1,0
+DB-261,recurring_cancelled,stop_recurring,no,no,Response code R3: All recurring payments on this card have been cancelled.,1,0
+DB-262,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-263,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-264,restricted_card,request_new_payment,no,no,"Response code 58: Not permitted to terminal. Issuer does not allow this transaction for this card, merchant or terminal.",1,0
+DB-265,expired_card,update_credential,conditional,no,Response code 187: Issuer has replaced the card.,1,0
+DB-266,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-267,lost_stolen,do_not_retry,no,no,Response code 41: Card has been reported lost.,1,0
+DB-268,issuer_unavailable,retry_later,yes,no,Response code 19: Issuer cannot process the transaction right now.,1,0
+DB-269,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-270,restricted_card,request_new_payment,no,no,Response code 12: Issuer does not allow this type of transaction on the account.,1,0
+DB-271,issuer_unavailable,retry_later,yes,no,Response code 80: Issuing bank could not be reached.,1,0
+DB-272,recurring_cancelled,do_not_retry,no,no,Response code R0: Cardholder stopped one recurring payment.,1,0
+DB-273,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-274,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-275,invalid_account,request_new_payment,no,no,Response code 15: Card number falls outside any issuer range the network supports.,1,0
+DB-276,authentication_required,retry_with_authentication,conditional,no,Response code 65: Issuer requires authentication; in some regions this code means an activity limit was exceeded.,1,0
+DB-277,invalid_data,escalate_to_engineer,no,yes,"Response code 94: Duplicate transmission. Request data is wrong, missing or duplicated.",1,0
+DB-278,fraud_suspected,do_not_retry,conditional,no,Response code 83: Issuer declined for fraud or security reasons; check the merchant advice code.,1,0
+DB-279,restricted_card,do_not_retry,no,no,Response code 93: Issuer cannot complete the transaction for legal reasons.,1,0
+DB-280,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-281,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-282,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-283,,escalate_to_engineer,no,yes,Code 502 is not in the lookup table.,1,0
+DB-284,restricted_card,do_not_retry,no,no,Response code 93: Issuer cannot complete the transaction for legal reasons.,1,0
+DB-285,restricted_card,request_new_payment,no,no,Response code 62: Issuer has restricted where or how the card can be used.,1,0
+DB-286,invalid_data,fix_request_data,conditional,yes,Response code 183: Currency code is not valid.,1,0
+DB-287,fraud_suspected,do_not_retry,conditional,no,Response code 83: Issuer declined for fraud or security reasons; check the merchant advice code.,1,0
+DB-288,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-289,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-290,invalid_account,request_new_payment,no,no,Response code 46: The account is closed.,1,0
+DB-291,limit_exceeded,request_new_payment,conditional,no,Response code 61: Transaction exceeds the card amount limit.,1,0
+DB-292,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-293,invalid_account,request_new_payment,no,no,Response code 52: No checking account is linked to the card.,1,0
+DB-294,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-295,expired_card,update_credential,conditional,no,Response code 187: Issuer has replaced the card.,1,0
+DB-296,,escalate_to_engineer,no,yes,Code 904 is not in the lookup table.,1,0
+DB-297,invalid_data,fix_request_data,conditional,no,Response code 125: The card effective date is invalid.,1,0
+DB-298,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-299,invalid_account,request_new_payment,no,no,Response code 111: Issuer cannot validate the account number.,1,0
+DB-300,restricted_card,request_new_payment,no,no,Response code 62: Issuer has restricted where or how the card can be used.,1,0
+DB-301,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-302,fraud_suspected,do_not_retry,conditional,no,Response code 83: Issuer declined for fraud or security reasons; check the merchant advice code.,1,0
+DB-303,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-304,fraud_suspected,do_not_retry,no,no,Response code 59: Issuer suspects the transaction is fraudulent.,1,0
+DB-305,expired_card,update_credential,conditional,no,Response code 101: Card has expired or the expiry date is invalid.,1,0
+DB-306,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-307,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-308,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-309,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-310,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-311,issuer_unavailable,retry_later,yes,yes,Response code 91: Issuer or network authorization system is down or timed out.,1,0
+DB-312,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-313,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-314,merchant_config,check_merchant_setup,no,yes,Response code 03: Issuer does not recognize or accept the merchant for this transaction.,1,0
+DB-315,restricted_card,request_new_payment,no,no,"Response code 40: Function not supported. Issuer does not allow this transaction for this card, merchant or terminal.",1,0
+DB-316,issuer_generic,contact_issuer,conditional,no,Response code 100: Generic decline with no specific reason.,1,0
+DB-317,expired_card,update_credential,conditional,no,Response code 79: Card data is invalid or out of date; check the merchant advice code.,1,0
+DB-318,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-319,invalid_account,request_new_payment,no,no,"Response code 14: Invalid card number. Card or account cannot be found, routed or used.",1,0
+DB-320,fraud_suspected,do_not_retry,no,no,Response code 63: Security violation. Issuer or acquirer flagged fraud or a security concern.,1,0
+DB-321,issuer_unavailable,retry_later,yes,no,Response code 19: Issuer cannot process the transaction right now.,1,0
+DB-322,restricted_card,request_new_payment,no,no,Response code 62: Issuer has restricted where or how the card can be used.,1,0
+DB-323,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-324,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-325,restricted_card,request_new_payment,no,no,Response code 12: Issuer does not allow this type of transaction on the account.,1,0
+DB-326,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-327,fraud_suspected,do_not_retry,no,no,Response code 63: Issuer flagged a security problem with the card or transaction.,1,0
+DB-328,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-329,expired_card,update_credential,conditional,no,Response code 79: Card data is invalid or out of date; check the merchant advice code.,1,0
+DB-330,invalid_data,fix_request_data,conditional,no,Response code N7: The card security code did not match.,1,0
+DB-331,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-332,invalid_account,request_new_payment,no,no,Response code 14: Issuer cannot match the card number to an account.,1,0
+DB-333,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-334,fraud_suspected,do_not_retry,no,no,Response code 63: Issuer flagged a security problem with the card or transaction.,1,0
+DB-335,,escalate_to_engineer,no,yes,Code 509 is not in the lookup table.,1,0
+DB-336,,escalate_to_engineer,no,yes,Code 570 is not in the lookup table.,1,0
+DB-337,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-338,invalid_data,fix_request_data,conditional,no,Response code 13: Amount is invalid or in the wrong format for this card.,1,0
+DB-339,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-340,expired_card,update_credential,conditional,no,Response code 79: Card data is invalid or out of date; check the merchant advice code.,1,0
+DB-341,invalid_account,request_new_payment,no,no,Response code 52: No checking account is linked to the card.,1,0
+DB-342,,escalate_to_engineer,no,yes,Code 301 is not in the lookup table.,1,0
+DB-343,,escalate_to_engineer,no,yes,Code 902 is not in the lookup table.,1,0
+DB-344,,escalate_to_engineer,no,yes,Code 522 is not in the lookup table.,1,0
+DB-345,restricted_card,request_new_payment,no,no,Response code 57: Issuer does not allow this transaction for this cardholder.,1,0
+DB-346,expired_card,update_credential,conditional,no,Response code 101: Card has expired or the expiry date is invalid.,1,0
+DB-347,,escalate_to_engineer,no,yes,Code 546 is not in the lookup table.,1,0
+DB-348,lost_stolen,do_not_retry,no,no,Response code 43: Card has been reported stolen.,1,0
+DB-349,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-350,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-351,authentication_required,retry_with_authentication,conditional,no,Response code 65: Issuer requires authentication; in some regions this code means an activity limit was exceeded.,1,0
+DB-352,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-353,limit_exceeded,retry_later,conditional,no,Response code 65: Card has exceeded the allowed number of transactions.,1,0
+DB-354,restricted_card,request_new_payment,no,no,Response code 12: Issuer does not allow this type of transaction on the account.,1,0
+DB-355,,escalate_to_engineer,no,yes,Code 303 is not in the lookup table.,1,0
+DB-356,fraud_suspected,do_not_retry,no,no,Response code 59: Issuer suspects the transaction is fraudulent.,1,0
+DB-357,,escalate_to_engineer,no,yes,Code 606 is not in the lookup table.,1,0
+DB-358,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-359,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-360,invalid_account,request_new_payment,no,no,Response code 14: Issuer cannot match the card number to an account.,1,0
+DB-361,invalid_account,request_new_payment,no,no,"Response code 92: Transaction could not be routed to an issuer, for example a test card used in production.",1,0
+DB-362,restricted_card,request_new_payment,no,no,Response code 9G: The cardholder has blocked the card.,1,0
+DB-363,,escalate_to_engineer,no,yes,Code 570 is not in the lookup table.,1,0
+DB-364,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-365,invalid_account,request_new_payment,no,no,"Response code 92: Transaction could not be routed to an issuer, for example a test card used in production.",1,0
+DB-366,authentication_required,retry_with_authentication,conditional,no,Response code 65: Issuer requires authentication; in some regions this code means an activity limit was exceeded.,1,0
+DB-367,,escalate_to_engineer,no,yes,Code 301 is not in the lookup table.,1,0
+DB-368,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-369,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-370,recurring_cancelled,do_not_retry,no,no,Response code R0: Cardholder stopped one recurring payment.,1,0
+DB-371,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-372,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-373,invalid_data,fix_request_data,conditional,no,Response code 13: Amount is invalid or in the wrong format for this card.,1,0
+DB-374,fraud_suspected,do_not_retry,no,no,Response code 63: Issuer flagged a security problem with the card or transaction.,1,0
+DB-375,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-376,limit_exceeded,request_new_payment,conditional,no,Response code 61: Transaction exceeds the card amount limit.,1,0
+DB-377,,escalate_to_engineer,no,yes,Code 531 is not in the lookup table.,1,0
+DB-378,issuer_generic,contact_issuer,conditional,no,Response code 05: Issuer declined without giving a specific reason.,1,0
+DB-379,,escalate_to_engineer,no,yes,Code 522 is not in the lookup table.,1,0
+DB-380,lost_stolen,do_not_retry,no,no,"Response code 07: Issuer wants the card retained under special conditions, often suspected fraud.",1,0
+DB-381,invalid_data,fix_request_data,conditional,no,Response code N7: The card security code did not match.,1,0
+DB-382,limit_exceeded,request_new_payment,conditional,no,Response code 61: Transaction exceeds the card amount limit.,1,0
+DB-383,,escalate_to_engineer,no,yes,Code 530 is not in the lookup table.,1,0
+DB-384,invalid_account,request_new_payment,no,no,"Response code 92: Transaction could not be routed to an issuer, for example a test card used in production.",1,0
+DB-385,issuer_unavailable,retry_later,yes,yes,Response code 96: Issuer or network system error.,1,0
+DB-386,expired_card,update_credential,conditional,no,Response code 79: Card data is invalid or out of date; check the merchant advice code.,1,0
+DB-387,fraud_suspected,do_not_retry,conditional,no,Response code 83: Issuer declined for fraud or security reasons; check the merchant advice code.,1,0
+DB-388,invalid_data,escalate_to_engineer,no,yes,"Response code 94: Duplicate transmission. Request data is wrong, missing or duplicated.",1,0
+DB-389,insufficient_funds,retry_later,yes,no,Response code 51: Account lacks the balance or credit to cover the amount.,1,0
+DB-390,invalid_data,fix_request_data,conditional,yes,"Response code 30: Format error. Request data is wrong, missing or duplicated.",1,0
+DB-391,fraud_suspected,do_not_retry,no,no,Response code 63: Issuer flagged a security problem with the card or transaction.,1,0
+DB-392,limit_exceeded,retry_later,conditional,no,Response code 65: Card has exceeded the allowed number of transactions.,1,0
+DB-393,expired_card,update_credential,conditional,no,Response code 54: Card is past its expiry date or the date sent is wrong.,1,0
+DB-394,,escalate_to_engineer,no,yes,Code 302 is not in the lookup table.,1,0
+DB-395,issuer_generic,contact_issuer,conditional,no,Response code 100: Generic decline with no specific reason.,1,0
+DB-396,issuer_generic,contact_issuer,conditional,no,Response code 82: Issuer declined on policy grounds; check the merchant advice code.,1,0
+DB-397,invalid_data,fix_request_data,conditional,yes,Response code 183: Currency code is not valid.,1,0
+DB-398,,escalate_to_engineer,no,yes,Code 531 is not in the lookup table.,1,0

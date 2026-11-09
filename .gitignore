@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+debug/
+kb_embeddings_*.npy
+run_log.txt
+*_test*
+.DS_Store
+.env
+*_returned.xlsx
+*.zip
+README_decline_study.md

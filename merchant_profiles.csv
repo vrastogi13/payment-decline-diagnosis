@@ -1,0 +1,31 @@
+merchant_id,merchant_type,region,stored_cards,planted_patterns
+M001,Utility bill payment,United States,415,2
+M002,Software subscription (SaaS),United States,309,1
+M003,Meal-kit subscription,United States,527,3
+M004,Video streaming subscription,Europe,458,2
+M005,Wine club subscription,United States,267,0
+M006,Video streaming subscription,United States,578,2
+M007,Utility bill payment,United States,497,2
+M008,Online retail,Europe,356,2
+M009,Wine club subscription,United States,348,2
+M010,Software subscription (SaaS),United States,546,2
+M011,Utility bill payment,United States,560,1
+M012,Online retail,Europe,275,0
+M013,Utility bill payment,United States,423,2
+M014,Online retail,United States,456,1
+M015,Wine club subscription,United States,491,2
+M016,Video streaming subscription,Europe,508,1
+M017,Wine club subscription,United States,272,1
+M018,Wine club subscription,United States,474,2
+M019,Gym and fitness membership,United States,420,0
+M020,Online marketplace,Europe,586,1
+M021,Online retail,United States,416,3
+M022,Video streaming subscription,United States,570,2
+M023,Online retail,United States,334,3
+M024,Software subscription (SaaS),Europe,436,2
+M025,Software subscription (SaaS),United States,558,2
+M026,Gym and fitness membership,United States,562,0
+M027,Utility bill payment,United States,538,3
+M028,Software subscription (SaaS),Europe,529,3
+M029,Online retail,United States,506,3
+M030,Online marketplace,United States,277,1
