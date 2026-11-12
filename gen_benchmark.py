@@ -7,7 +7,8 @@ import duckdb
 
 SCHEMA, SEED, OUT = sys.argv[1], sys.argv[2], sys.argv[3]
 rng = random.Random(20261103)
-VISA_REATTEMPT_LIMIT = 15  # Visa: at most 15 reattempts in 30 days for retryable declines (verify against Visa's published rules)
+VISA_REATTEMPT_LIMIT = 20  # Visa Core Rules, Table 7-2: up to 20 authorization attempts in 30 days for decline categories 2-4 (since 25 May 2025)
+RETRY_SCENARIO_MIN = 15    # retry-limit scenarios draw 15 to 24 earlier attempts, so some are within the limit and some beyond it
 
 db = duckdb.connect(); db.execute(open(SCHEMA).read()); db.execute(open(SEED).read())
 cols = [d[0] for d in db.execute('select * from decline_code limit 0').description]
@@ -171,10 +172,10 @@ for _ in range(2):
 # 1. Visa reattempt limit: a retryable decline that has already been retried too often
 for _ in range(40):
     s = base(pick('visa', rng.choice(['05', '51', '51', '61', '65', '91', '96', '19'])), recurring=rng.random() < 0.8)
-    s['retries_last_30_days'] = rng.randint(VISA_REATTEMPT_LIMIT, 24)
+    s['retries_last_30_days'] = rng.randint(RETRY_SCENARIO_MIN, 24)
     s['attempt_number'], s['previous_attempt'] = s['retries_last_30_days'] + 1, 'Declined with same code'
     s['report_override'] = "We have retried this payment every day for weeks and it keeps failing."
-    hard(s, 'Retry limit reached')
+    hard(s, 'Retry limit reached' if s['retries_last_30_days'] >= VISA_REATTEMPT_LIMIT else 'Near retry limit, retry still allowed')
 # 2. Processor codes: the record shows First Data's code, not the network code
 for _ in range(45):
     pc, plabel, cid = rng.choice(pmap)

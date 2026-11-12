@@ -53,7 +53,7 @@ A,DB-051,hard,Card replaced by issuer,amex,expired_card,update_credential,no,Fal
 A,DB-052,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,1,0
 A,DB-053,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
 A,DB-054,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
-A,DB-055,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
+A,DB-055,hard,"Near retry limit, retry still allowed",visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
 A,DB-056,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,1,0
 A,DB-057,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-058,standard,,amex,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,1,0
@@ -109,7 +109,7 @@ A,DB-107,standard,,mastercard,restricted_card,request_new_payment,no,False,restr
 A,DB-108,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
 A,DB-109,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
 A,DB-110,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
-A,DB-111,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,1,0
+A,DB-111,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,1,0
 A,DB-112,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-113,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
 A,DB-114,hard,Visa category requires data fix,visa,issuer_generic,fix_request_data,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
@@ -138,14 +138,14 @@ A,DB-136,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_fun
 A,DB-137,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-138,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
 A,DB-139,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
-A,DB-140,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,limit_exceeded,retry_later,no,True,False,False,True,,1,0
+A,DB-140,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,1,0
 A,DB-141,hard,Repeated system or format failure needs escalation,discover,invalid_data,escalate_to_engineer,yes,False,invalid_data,escalate_to_engineer,yes,True,True,True,True,,1,0
 A,DB-142,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
 A,DB-143,standard,,visa,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,1,0
 A,DB-144,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,1,0
 A,DB-145,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
 A,DB-146,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,1,0
-A,DB-147,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,1,0
+A,DB-147,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,1,0
 A,DB-148,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
 A,DB-149,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-150,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
@@ -153,7 +153,7 @@ A,DB-151,standard,,amex,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_ret
 A,DB-152,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1,0
 A,DB-153,standard,,mastercard,merchant_config,check_merchant_setup,yes,False,merchant_config,check_merchant_setup,yes,True,True,True,True,,1,0
 A,DB-154,standard,,discover,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,1,0
-A,DB-155,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,1,0
+A,DB-155,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,1,0
 A,DB-156,standard,,discover,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
 A,DB-157,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1,0
 A,DB-158,standard,,mastercard,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,1,0
@@ -166,7 +166,7 @@ A,DB-164,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_fun
 A,DB-165,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,1,0
 A,DB-166,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
 A,DB-167,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
-A,DB-168,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,limit_exceeded,retry_later,no,True,False,False,True,,1,0
+A,DB-168,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,1,0
 A,DB-169,hard,Processor code needs translation,visa,issuer_unavailable,retry_later,yes,False,,escalate_to_engineer,yes,False,False,False,True,,1,0
 A,DB-170,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1,0
 A,DB-171,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
@@ -198,16 +198,16 @@ A,DB-196,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,limi
 A,DB-197,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
 A,DB-198,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,1,0
 A,DB-199,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
-A,DB-200,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
+A,DB-200,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,1,0
 A,DB-201,standard,,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,1,0
 A,DB-202,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-203,standard,,visa,invalid_account,contact_issuer,no,False,invalid_account,contact_issuer,no,True,True,True,True,,1,0
 A,DB-204,hard,Processor code needs translation,visa,limit_exceeded,retry_later,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
-A,DB-205,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
+A,DB-205,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,1,0
 A,DB-206,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,1,0
 A,DB-207,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
 A,DB-208,standard,,visa,limit_exceeded,request_new_payment,no,False,limit_exceeded,request_new_payment,no,True,True,True,True,,1,0
-A,DB-209,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,1,0
+A,DB-209,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1,0
 A,DB-210,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,1,0
 A,DB-211,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
 A,DB-212,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
@@ -233,16 +233,16 @@ A,DB-231,standard,,mastercard,expired_card,update_credential,no,False,expired_ca
 A,DB-232,hard,Processor code needs translation,visa,recurring_cancelled,stop_recurring,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
 A,DB-233,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1,0
 A,DB-234,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
-A,DB-235,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,1,0
+A,DB-235,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1,0
 A,DB-236,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,fraud_suspected,do_not_retry,no,True,False,False,True,,1,0
 A,DB-237,hard,Processor code needs translation,visa,fraud_suspected,do_not_retry,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
-A,DB-238,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,1,0
+A,DB-238,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,1,0
 A,DB-239,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
 A,DB-240,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,1,0
 A,DB-241,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,1,0
 A,DB-242,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-243,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,1,0
-A,DB-244,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
+A,DB-244,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,1,0
 A,DB-245,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,1,0
 A,DB-246,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,1,0
 A,DB-247,standard,,amex,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,1,0
@@ -261,12 +261,12 @@ A,DB-259,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,do_n
 A,DB-260,standard,,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,1,0
 A,DB-261,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,1,0
 A,DB-262,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
-A,DB-263,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
+A,DB-263,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,1,0
 A,DB-264,standard,,discover,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,1,0
 A,DB-265,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
 A,DB-266,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1,0
 A,DB-267,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,1,0
-A,DB-268,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,1,0
+A,DB-268,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,1,0
 A,DB-269,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-270,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,1,0
 A,DB-271,standard,,mastercard,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,1,0
@@ -309,7 +309,7 @@ A,DB-307,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,n
 A,DB-308,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-309,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-310,hard,Repeated system or format failure needs escalation,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,1,0
-A,DB-311,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
+A,DB-311,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,1,0
 A,DB-312,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
 A,DB-313,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
 A,DB-314,standard,,visa,merchant_config,check_merchant_setup,yes,False,merchant_config,check_merchant_setup,yes,True,True,True,True,,1,0
@@ -347,7 +347,7 @@ A,DB-345,standard,,visa,restricted_card,request_new_payment,no,False,restricted_
 A,DB-346,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
 A,DB-347,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
 A,DB-348,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,1,0
-A,DB-349,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
+A,DB-349,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,1,0
 A,DB-350,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,1,0
 A,DB-351,hard,Code meaning depends on region,mastercard,limit_exceeded,retry_later,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,1,0
 A,DB-352,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1,0
@@ -367,14 +367,14 @@ A,DB-365,standard,,mastercard,invalid_account,request_new_payment,no,False,inval
 A,DB-366,hard,Code meaning depends on region,mastercard,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,1,0
 A,DB-367,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,,escalate_to_engineer,yes,False,False,False,True,,1,0
 A,DB-368,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
-A,DB-369,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,1,0
+A,DB-369,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1,0
 A,DB-370,hard,Recurring authorization revoked,visa,recurring_cancelled,do_not_retry,no,False,recurring_cancelled,do_not_retry,no,True,True,True,True,,1,0
 A,DB-371,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-372,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-373,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,1,0
 A,DB-374,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,1,0
 A,DB-375,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1,0
-A,DB-376,hard,Retry limit reached,visa,limit_exceeded,request_new_payment,no,False,limit_exceeded,request_new_payment,no,True,True,True,True,,1,0
+A,DB-376,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,request_new_payment,no,False,limit_exceeded,request_new_payment,no,True,True,True,True,,1,0
 A,DB-377,hard,Processor code needs translation,visa,invalid_data,fix_request_data,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
 A,DB-378,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,1,0
 A,DB-379,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
@@ -383,14 +383,14 @@ A,DB-381,hard,Visa category requires data fix,visa,invalid_data,fix_request_data
 A,DB-382,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,limit_exceeded,request_new_payment,no,True,False,False,True,,1,0
 A,DB-383,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
 A,DB-384,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,1,0
-A,DB-385,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,1,0
+A,DB-385,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,1,0
 A,DB-386,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
 A,DB-387,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,1,0
 A,DB-388,standard,,discover,invalid_data,escalate_to_engineer,yes,False,invalid_data,escalate_to_engineer,yes,True,True,True,True,,1,0
 A,DB-389,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,1,0
 A,DB-390,hard,Repeated system or format failure needs escalation,discover,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,1,0
 A,DB-391,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,1,0
-A,DB-392,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,limit_exceeded,retry_later,no,True,False,False,True,,1,0
+A,DB-392,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,1,0
 A,DB-393,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1,0
 A,DB-394,hard,Processor code needs translation,mastercard,insufficient_funds,retry_later,no,False,,escalate_to_engineer,yes,False,False,False,False,,1,0
 A,DB-395,standard,,amex,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,1,0
@@ -451,7 +451,7 @@ B,DB-051,hard,Card replaced by issuer,amex,expired_card,update_credential,no,Fal
 B,DB-052,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,1283,0.0
 B,DB-053,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,1050,0.0
 B,DB-054,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,1254,0.0
-B,DB-055,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,2332,0.0
+B,DB-055,hard,"Near retry limit, retry still allowed",visa,issuer_generic,contact_issuer,no,False,insufficient_funds,retry_later,no,False,False,False,True,,2332,0.0
 B,DB-056,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,contact_issuer,no,True,False,False,True,,1686,0.0
 B,DB-057,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,998,0.0
 B,DB-058,standard,,amex,invalid_account,request_new_payment,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,1195,0.0
@@ -507,7 +507,7 @@ B,DB-107,standard,,mastercard,restricted_card,request_new_payment,no,False,restr
 B,DB-108,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1459,0.0
 B,DB-109,standard,,visa,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1155,0.0
 B,DB-110,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,issuer_generic,retry_later,no,False,False,False,True,,1670,0.0
-B,DB-111,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1626,0.0
+B,DB-111,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1626,0.0
 B,DB-112,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,1745,0.0
 B,DB-113,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1405,0.0
 B,DB-114,hard,Visa category requires data fix,visa,issuer_generic,fix_request_data,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1190,0.0
@@ -536,14 +536,14 @@ B,DB-136,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_fun
 B,DB-137,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1766,0.0
 B,DB-138,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,1379,0.0
 B,DB-139,standard,,visa,issuer_generic,contact_issuer,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1239,0.0
-B,DB-140,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1213,0.0
+B,DB-140,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1213,0.0
 B,DB-141,hard,Repeated system or format failure needs escalation,discover,invalid_data,escalate_to_engineer,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1301,0.0
 B,DB-142,standard,,amex,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1636,0.0
 B,DB-143,standard,,visa,authentication_required,retry_with_authentication,no,False,issuer_generic,retry_later,no,False,False,False,True,,1316,0.0
 B,DB-144,standard,,mastercard,lost_stolen,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1220,0.0
 B,DB-145,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,1677,0.0
 B,DB-146,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,1405,0.0
-B,DB-147,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1439,0.0
+B,DB-147,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1439,0.0
 B,DB-148,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1235,0.0
 B,DB-149,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,1743,0.0
 B,DB-150,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,retry_with_authentication,no,True,False,False,True,,1875,0.0
@@ -551,7 +551,7 @@ B,DB-151,standard,,amex,lost_stolen,do_not_retry,no,False,insufficient_funds,ret
 B,DB-152,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1525,0.0
 B,DB-153,standard,,mastercard,merchant_config,check_merchant_setup,yes,False,issuer_unavailable,contact_issuer,yes,False,False,False,True,,1559,0.0
 B,DB-154,standard,,discover,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,1398,0.0
-B,DB-155,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1459,0.0
+B,DB-155,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1459,0.0
 B,DB-156,standard,,discover,issuer_generic,contact_issuer,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1235,0.0
 B,DB-157,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1846,0.0
 B,DB-158,standard,,mastercard,issuer_unavailable,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1251,0.0
@@ -564,7 +564,7 @@ B,DB-164,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_fun
 B,DB-165,standard,,visa,invalid_account,request_new_payment,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,1628,0.0
 B,DB-166,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,issuer_generic,retry_later,no,False,False,False,True,,1546,0.0
 B,DB-167,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1568,0.0
-B,DB-168,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1719,0.0
+B,DB-168,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1719,0.0
 B,DB-169,hard,Processor code needs translation,visa,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,1716,0.0
 B,DB-170,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1348,0.0
 B,DB-171,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,restricted_card,contact_issuer,no,True,False,False,True,,1350,0.0
@@ -596,16 +596,16 @@ B,DB-196,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,insu
 B,DB-197,standard,,amex,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1566,0.0
 B,DB-198,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,restricted_card,contact_issuer,no,True,False,False,True,,4718,0.0
 B,DB-199,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,1102,0.0
-B,DB-200,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1535,0.0
+B,DB-200,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,1535,0.0
 B,DB-201,standard,,amex,invalid_data,fix_request_data,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1330,0.0
 B,DB-202,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,992,0.0
 B,DB-203,standard,,visa,invalid_account,contact_issuer,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1595,0.0
 B,DB-204,hard,Processor code needs translation,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_with_authentication,no,True,False,False,True,,1444,0.0
-B,DB-205,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1441,0.0
+B,DB-205,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,1441,0.0
 B,DB-206,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,contact_issuer,no,True,False,False,True,,1621,0.0
 B,DB-207,standard,,mastercard,issuer_generic,contact_issuer,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1720,0.0
 B,DB-208,standard,,visa,limit_exceeded,request_new_payment,no,False,limit_exceeded,retry_with_authentication,no,True,False,False,True,,1247,0.0
-B,DB-209,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,1409,0.0
+B,DB-209,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1409,0.0
 B,DB-210,standard,,mastercard,fraud_suspected,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1205,0.0
 B,DB-211,standard,,mastercard,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,2100,0.0
 B,DB-212,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1611,0.0
@@ -631,16 +631,16 @@ B,DB-231,standard,,mastercard,expired_card,update_credential,no,False,expired_ca
 B,DB-232,hard,Processor code needs translation,visa,recurring_cancelled,stop_recurring,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1726,0.0
 B,DB-233,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1640,0.0
 B,DB-234,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1330,0.0
-B,DB-235,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,1352,0.0
+B,DB-235,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1352,0.0
 B,DB-236,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1824,0.0
 B,DB-237,hard,Processor code needs translation,visa,fraud_suspected,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,1316,0.0
-B,DB-238,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1522,0.0
+B,DB-238,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1522,0.0
 B,DB-239,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,restricted_card,contact_issuer,no,True,False,False,True,,1816,0.0
 B,DB-240,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1438,0.0
 B,DB-241,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,restricted_card,contact_issuer,no,True,False,False,True,,2099,0.0
 B,DB-242,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1329,0.0
 B,DB-243,standard,,mastercard,fraud_suspected,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,1106,0.0
-B,DB-244,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1767,0.0
+B,DB-244,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,1767,0.0
 B,DB-245,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,stop_recurring,no,True,False,False,True,,1325,0.0
 B,DB-246,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1608,0.0
 B,DB-247,standard,,amex,authentication_required,retry_with_authentication,no,False,issuer_generic,retry_later,no,False,False,False,True,,1774,0.0
@@ -659,12 +659,12 @@ B,DB-259,standard,,mastercard,lost_stolen,do_not_retry,no,False,insufficient_fun
 B,DB-260,standard,,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_with_authentication,no,True,False,False,True,,1946,0.0
 B,DB-261,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,1532,0.0
 B,DB-262,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,1249,0.0
-B,DB-263,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1215,0.0
+B,DB-263,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,1215,0.0
 B,DB-264,standard,,discover,restricted_card,request_new_payment,no,False,restricted_card,contact_issuer,no,True,False,False,True,,2082,0.0
 B,DB-265,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,expired_card,retry_with_authentication,no,True,False,False,True,,1556,0.0
 B,DB-266,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1119,0.0
 B,DB-267,standard,,mastercard,lost_stolen,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1187,0.0
-B,DB-268,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1075,0.0
+B,DB-268,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1075,0.0
 B,DB-269,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1726,0.0
 B,DB-270,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,contact_issuer,no,True,False,False,True,,1311,0.0
 B,DB-271,standard,,mastercard,issuer_unavailable,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,1167,0.0
@@ -707,7 +707,7 @@ B,DB-307,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,n
 B,DB-308,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,retry_later,no,True,False,False,True,,2084,0.0
 B,DB-309,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,retry_later,no,True,False,False,True,,1460,0.0
 B,DB-310,hard,Repeated system or format failure needs escalation,visa,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,1675,0.0
-B,DB-311,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1508,0.0
+B,DB-311,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,1508,0.0
 B,DB-312,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,1520,0.0
 B,DB-313,standard,,visa,issuer_generic,contact_issuer,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1516,0.0
 B,DB-314,standard,,visa,merchant_config,check_merchant_setup,yes,False,issuer_unavailable,check_merchant_setup,yes,False,True,False,True,,1877,0.0
@@ -745,7 +745,7 @@ B,DB-345,standard,,visa,restricted_card,request_new_payment,no,False,restricted_
 B,DB-346,standard,,amex,expired_card,update_credential,no,False,expired_card,retry_with_authentication,no,True,False,False,True,,7975,0.0
 B,DB-347,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,restricted_card,contact_issuer,no,True,False,False,True,,2072,0.0
 B,DB-348,standard,,visa,lost_stolen,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,7560,0.0
-B,DB-349,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,6362,0.0
+B,DB-349,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,6362,0.0
 B,DB-350,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,restricted_card,stop_recurring,no,True,False,False,True,,9377,0.0
 B,DB-351,hard,Code meaning depends on region,mastercard,limit_exceeded,retry_later,no,False,limit_exceeded,retry_with_authentication,no,True,False,False,True,,6897,0.0
 B,DB-352,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,2003,0.0
@@ -765,14 +765,14 @@ B,DB-365,standard,,mastercard,invalid_account,request_new_payment,no,False,issue
 B,DB-366,hard,Code meaning depends on region,mastercard,authentication_required,retry_with_authentication,no,False,issuer_generic,retry_later,no,False,False,False,True,,1831,0.0
 B,DB-367,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,2546,0.0
 B,DB-368,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1592,0.0
-B,DB-369,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,1704,0.0
+B,DB-369,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1704,0.0
 B,DB-370,hard,Recurring authorization revoked,visa,recurring_cancelled,do_not_retry,no,False,lost_stolen,stop_recurring,no,False,False,False,True,,1791,0.0
 B,DB-371,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1814,0.0
 B,DB-372,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,6293,0.0
 B,DB-373,standard,,visa,invalid_data,fix_request_data,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1437,0.0
 B,DB-374,standard,,visa,fraud_suspected,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,1554,0.0
 B,DB-375,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,1776,0.0
-B,DB-376,hard,Retry limit reached,visa,limit_exceeded,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1908,0.0
+B,DB-376,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1908,0.0
 B,DB-377,hard,Processor code needs translation,visa,invalid_data,fix_request_data,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1297,0.0
 B,DB-378,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,1969,0.0
 B,DB-379,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1515,0.0
@@ -781,14 +781,14 @@ B,DB-381,hard,Visa category requires data fix,visa,invalid_data,fix_request_data
 B,DB-382,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,limit_exceeded,retry_with_authentication,no,True,False,False,True,,7272,0.0
 B,DB-383,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,1760,0.0
 B,DB-384,standard,,visa,invalid_account,request_new_payment,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,1979,0.0
-B,DB-385,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1837,0.0
+B,DB-385,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,insufficient_funds,retry_later,no,False,True,False,False,,1837,0.0
 B,DB-386,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1680,0.0
 B,DB-387,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,1657,0.0
 B,DB-388,standard,,discover,invalid_data,escalate_to_engineer,yes,False,merchant_config,check_merchant_setup,no,False,False,False,False,,1678,0.0
 B,DB-389,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,1995,0.0
 B,DB-390,hard,Repeated system or format failure needs escalation,discover,invalid_data,fix_request_data,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,1952,0.0
 B,DB-391,standard,,visa,fraud_suspected,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,2041,0.0
-B,DB-392,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,3233,0.0
+B,DB-392,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,3233,0.0
 B,DB-393,standard,,mastercard,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,2317,0.0
 B,DB-394,hard,Processor code needs translation,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,2033,0.0
 B,DB-395,standard,,amex,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,1749,0.0
@@ -849,7 +849,7 @@ C,DB-051,hard,Card replaced by issuer,amex,expired_card,update_credential,no,Fal
 C,DB-052,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,9984,0.0
 C,DB-053,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,9425,0.0
 C,DB-054,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,10157,0.0
-C,DB-055,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,issuer_generic,retry_later,no,True,False,False,True,,10265,0.0
+C,DB-055,hard,"Near retry limit, retry still allowed",visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,10265,0.0
 C,DB-056,standard,,visa,restricted_card,request_new_payment,no,False,issuer_unavailable,retry_later,no,False,False,False,True,,11440,0.0
 C,DB-057,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,8997,0.0
 C,DB-058,standard,,amex,invalid_account,request_new_payment,no,False,issuer_generic,retry_later,no,False,False,False,True,,9668,0.0
@@ -905,7 +905,7 @@ C,DB-107,standard,,mastercard,restricted_card,request_new_payment,no,False,issue
 C,DB-108,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,1520,0.0
 C,DB-109,standard,,visa,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,4099,0.0
 C,DB-110,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,issuer_generic,retry_later,no,False,False,False,True,,2867,0.0
-C,DB-111,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,2795,0.0
+C,DB-111,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_generic,retry_later,no,False,True,False,True,,2795,0.0
 C,DB-112,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,2269,0.0
 C,DB-113,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_generic,retry_later,no,False,False,False,False,,6052,0.0
 C,DB-114,hard,Visa category requires data fix,visa,issuer_generic,fix_request_data,no,False,issuer_generic,retry_later,no,True,False,False,True,,3123,0.0
@@ -934,14 +934,14 @@ C,DB-136,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_fun
 C,DB-137,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,2711,0.0
 C,DB-138,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,2740,0.0
 C,DB-139,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,2592,0.0
-C,DB-140,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,3445,0.0
+C,DB-140,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,issuer_generic,retry_later,no,False,True,False,True,,3445,0.0
 C,DB-141,hard,Repeated system or format failure needs escalation,discover,invalid_data,escalate_to_engineer,yes,False,issuer_generic,contact_issuer,no,False,False,False,False,,4076,0.0
 C,DB-142,standard,,amex,expired_card,update_credential,no,False,issuer_generic,retry_later,no,False,False,False,True,,2795,0.0
 C,DB-143,standard,,visa,authentication_required,retry_with_authentication,no,False,issuer_generic,retry_later,no,False,False,False,True,,2645,0.0
 C,DB-144,standard,,mastercard,lost_stolen,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,2782,0.0
 C,DB-145,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,3046,0.0
 C,DB-146,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,2556,0.0
-C,DB-147,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,2709,0.0
+C,DB-147,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,2709,0.0
 C,DB-148,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,contact_issuer,no,True,False,False,False,,3357,0.0
 C,DB-149,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,3057,0.0
 C,DB-150,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,4497,0.0
@@ -949,7 +949,7 @@ C,DB-151,standard,,amex,lost_stolen,do_not_retry,no,False,insufficient_funds,ret
 C,DB-152,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,update_credential,no,False,True,False,True,,3203,0.0
 C,DB-153,standard,,mastercard,merchant_config,check_merchant_setup,yes,False,issuer_generic,retry_later,no,False,False,False,False,,3056,0.0
 C,DB-154,standard,,discover,issuer_unavailable,retry_later,yes,False,issuer_generic,retry_later,no,False,True,False,False,,3701,0.0
-C,DB-155,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,3434,0.0
+C,DB-155,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,3434,0.0
 C,DB-156,standard,,discover,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,1848,0.0
 C,DB-157,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,3792,0.0
 C,DB-158,standard,,mastercard,issuer_unavailable,retry_later,no,False,issuer_generic,retry_later,no,False,True,False,True,,2885,0.0
@@ -962,7 +962,7 @@ C,DB-164,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_fun
 C,DB-165,standard,,visa,invalid_account,request_new_payment,no,False,issuer_generic,retry_later,no,False,False,False,True,,7066,0.0
 C,DB-166,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,issuer_generic,retry_later,no,False,False,False,True,,3175,0.0
 C,DB-167,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,stop_recurring,no,True,False,False,False,,4196,0.0
-C,DB-168,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,issuer_unavailable,contact_issuer,no,False,False,False,True,,7508,0.0
+C,DB-168,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,issuer_unavailable,contact_issuer,no,False,False,False,True,,7508,0.0
 C,DB-169,hard,Processor code needs translation,visa,issuer_unavailable,retry_later,yes,False,issuer_generic,retry_later,no,False,True,False,False,,7459,0.0
 C,DB-170,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,3320,0.0
 C,DB-171,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,4794,0.0
@@ -994,16 +994,16 @@ C,DB-196,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,issu
 C,DB-197,standard,,amex,expired_card,update_credential,no,False,issuer_generic,retry_later,no,False,False,False,True,,4822,0.0
 C,DB-198,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,restricted_card,contact_issuer,no,True,False,False,True,,8956,0.0
 C,DB-199,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_unavailable,retry_later,no,False,True,False,True,,1707,0.0
-C,DB-200,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_generic,stop_recurring,no,False,False,False,False,,3352,0.0
+C,DB-200,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_generic,stop_recurring,no,False,False,False,False,,3352,0.0
 C,DB-201,standard,,amex,invalid_data,fix_request_data,yes,False,insufficient_funds,retry_later,no,False,False,False,False,,4769,0.0
 C,DB-202,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_unavailable,retry_later,no,False,True,False,True,,1913,0.0
 C,DB-203,standard,,visa,invalid_account,contact_issuer,no,False,issuer_unavailable,retry_later,no,False,False,False,True,,3094,0.0
 C,DB-204,hard,Processor code needs translation,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,6397,0.0
-C,DB-205,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,stop_recurring,no,True,False,False,False,,8323,0.0
+C,DB-205,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,stop_recurring,no,True,False,False,False,,8323,0.0
 C,DB-206,standard,,visa,restricted_card,request_new_payment,no,False,issuer_generic,retry_later,no,False,False,False,True,,3509,0.0
 C,DB-207,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,yes,True,True,True,False,,4477,0.0
 C,DB-208,standard,,visa,limit_exceeded,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,4941,0.0
-C,DB-209,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,stop_recurring,no,True,False,False,True,,3045,0.0
+C,DB-209,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,stop_recurring,no,True,False,False,True,,3045,0.0
 C,DB-210,standard,,mastercard,fraud_suspected,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,3773,0.0
 C,DB-211,standard,,mastercard,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,3262,0.0
 C,DB-212,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,issuer_unavailable,retry_later,no,False,False,False,True,,3434,0.0
@@ -1029,16 +1029,16 @@ C,DB-231,standard,,mastercard,expired_card,update_credential,no,False,insufficie
 C,DB-232,hard,Processor code needs translation,visa,recurring_cancelled,stop_recurring,no,False,issuer_generic,retry_later,no,False,False,False,True,,3594,0.0
 C,DB-233,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,3636,0.0
 C,DB-234,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,stop_recurring,no,True,False,False,False,,4760,0.0
-C,DB-235,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,stop_recurring,no,True,False,False,True,,3785,0.0
+C,DB-235,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,stop_recurring,no,True,False,False,True,,3785,0.0
 C,DB-236,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,6001,0.0
 C,DB-237,hard,Processor code needs translation,visa,fraud_suspected,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,3829,0.0
-C,DB-238,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,stop_recurring,no,True,False,False,True,,5733,0.0
+C,DB-238,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,stop_recurring,no,True,False,False,True,,5733,0.0
 C,DB-239,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,issuer_unavailable,retry_later,no,False,False,False,True,,3380,0.0
 C,DB-240,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,6941,0.0
 C,DB-241,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,3918,0.0
 C,DB-242,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,insufficient_funds,retry_later,no,False,True,False,True,,2349,0.0
 C,DB-243,standard,,mastercard,fraud_suspected,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,3857,0.0
-C,DB-244,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_generic,retry_later,no,False,False,False,False,,5495,0.0
+C,DB-244,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_generic,retry_later,no,False,True,False,False,,5495,0.0
 C,DB-245,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,stop_recurring,no,True,False,False,True,,3694,0.0
 C,DB-246,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,issuer_generic,retry_later,no,False,False,False,True,,9993,0.0
 C,DB-247,standard,,amex,authentication_required,retry_with_authentication,no,False,issuer_generic,retry_later,no,False,False,False,True,,2847,0.0
@@ -1057,12 +1057,12 @@ C,DB-259,standard,,mastercard,lost_stolen,do_not_retry,no,False,issuer_generic,r
 C,DB-260,standard,,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,3554,0.0
 C,DB-261,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,restricted_card,stop_recurring,no,False,True,False,True,,3708,0.0
 C,DB-262,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,3375,0.0
-C,DB-263,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,no,True,False,False,False,,4099,0.0
+C,DB-263,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,4099,0.0
 C,DB-264,standard,,discover,restricted_card,request_new_payment,no,False,issuer_generic,retry_later,no,False,False,False,True,,4623,0.0
 C,DB-265,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,issuer_generic,retry_later,no,False,False,False,True,,4183,0.0
 C,DB-266,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,5474,0.0
 C,DB-267,standard,,mastercard,lost_stolen,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,3955,0.0
-C,DB-268,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,3103,0.0
+C,DB-268,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_generic,retry_later,no,False,True,False,True,,3103,0.0
 C,DB-269,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,retry_later,no,True,False,False,True,,2919,0.0
 C,DB-270,standard,,visa,restricted_card,request_new_payment,no,False,issuer_generic,retry_later,no,False,False,False,True,,4478,0.0
 C,DB-271,standard,,mastercard,issuer_unavailable,retry_later,no,False,issuer_generic,retry_later,no,False,True,False,True,,5600,0.0
@@ -1105,7 +1105,7 @@ C,DB-307,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,n
 C,DB-308,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,retry_later,no,True,False,False,True,,5282,0.0
 C,DB-309,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,retry_later,no,True,False,False,True,,4405,0.0
 C,DB-310,hard,Repeated system or format failure needs escalation,visa,issuer_unavailable,retry_later,yes,False,issuer_generic,contact_issuer,no,False,False,False,False,,7724,0.0
-C,DB-311,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,contact_issuer,no,True,False,False,False,,4870,0.0
+C,DB-311,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,contact_issuer,no,True,False,False,False,,4870,0.0
 C,DB-312,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,5734,0.0
 C,DB-313,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,2351,0.0
 C,DB-314,standard,,visa,merchant_config,check_merchant_setup,yes,False,issuer_unavailable,retry_later,no,False,False,False,False,,4612,0.0
@@ -1143,7 +1143,7 @@ C,DB-345,standard,,visa,restricted_card,request_new_payment,no,False,issuer_gene
 C,DB-346,standard,,amex,expired_card,update_credential,no,False,issuer_generic,retry_later,no,False,False,False,True,,3889,0.0
 C,DB-347,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,4739,0.0
 C,DB-348,standard,,visa,lost_stolen,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,4985,0.0
-C,DB-349,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,stop_recurring,no,True,False,False,False,,5112,0.0
+C,DB-349,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,stop_recurring,no,True,False,False,False,,5112,0.0
 C,DB-350,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,restricted_card,stop_recurring,no,True,False,False,True,,3873,0.0
 C,DB-351,hard,Code meaning depends on region,mastercard,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,5557,0.0
 C,DB-352,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,3993,0.0
@@ -1163,14 +1163,14 @@ C,DB-365,standard,,mastercard,invalid_account,request_new_payment,no,False,issue
 C,DB-366,hard,Code meaning depends on region,mastercard,authentication_required,retry_with_authentication,no,False,issuer_generic,retry_later,no,False,False,False,True,,7167,0.0
 C,DB-367,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,issuer_generic,retry_later,no,False,True,False,False,,4403,0.0
 C,DB-368,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_generic,stop_recurring,no,False,False,False,False,,4198,0.0
-C,DB-369,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,stop_recurring,no,True,False,False,True,,5731,0.0
+C,DB-369,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,stop_recurring,no,True,False,False,True,,5731,0.0
 C,DB-370,hard,Recurring authorization revoked,visa,recurring_cancelled,do_not_retry,no,False,restricted_card,stop_recurring,no,False,False,False,True,,4805,0.0
 C,DB-371,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,issuer_generic,retry_later,no,True,False,False,True,,4217,0.0
 C,DB-372,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,retry_later,no,True,False,False,True,,5222,0.0
 C,DB-373,standard,,visa,invalid_data,fix_request_data,no,False,issuer_generic,retry_later,no,False,False,False,True,,4609,0.0
 C,DB-374,standard,,visa,fraud_suspected,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,3995,0.0
 C,DB-375,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,5507,0.0
-C,DB-376,hard,Retry limit reached,visa,limit_exceeded,request_new_payment,no,False,issuer_generic,retry_later,no,False,False,False,True,,4937,0.0
+C,DB-376,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,request_new_payment,no,False,issuer_generic,retry_later,no,False,False,False,True,,4937,0.0
 C,DB-377,hard,Processor code needs translation,visa,invalid_data,fix_request_data,no,False,insufficient_funds,retry_later,no,False,False,False,True,,3891,0.0
 C,DB-378,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,5542,0.0
 C,DB-379,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,issuer_generic,retry_later,no,False,False,False,True,,6028,0.0
@@ -1179,415 +1179,415 @@ C,DB-381,hard,Visa category requires data fix,visa,invalid_data,fix_request_data
 C,DB-382,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,6571,0.0
 C,DB-383,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,5456,0.0
 C,DB-384,standard,,visa,invalid_account,request_new_payment,no,False,issuer_generic,retry_later,no,False,False,False,True,,5595,0.0
-C,DB-385,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_generic,stop_recurring,no,False,False,False,False,,5803,0.0
+C,DB-385,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_generic,stop_recurring,no,False,False,False,False,,5803,0.0
 C,DB-386,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,4437,0.0
 C,DB-387,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,insufficient_funds,retry_later,no,False,False,False,True,,4300,0.0
 C,DB-388,standard,,discover,invalid_data,escalate_to_engineer,yes,False,issuer_generic,retry_later,no,False,False,False,False,,5116,0.0
 C,DB-389,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,6323,0.0
 C,DB-390,hard,Repeated system or format failure needs escalation,discover,invalid_data,fix_request_data,yes,False,issuer_generic,retry_later,no,False,False,False,False,,4534,0.0
 C,DB-391,standard,,visa,fraud_suspected,do_not_retry,no,False,issuer_generic,retry_later,no,False,False,False,True,,4229,0.0
-C,DB-392,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,issuer_unavailable,stop_recurring,no,False,False,False,True,,4881,0.0
+C,DB-392,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,issuer_unavailable,stop_recurring,no,False,False,False,True,,4881,0.0
 C,DB-393,standard,,mastercard,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,5636,0.0
 C,DB-394,hard,Processor code needs translation,mastercard,insufficient_funds,retry_later,no,False,issuer_generic,retry_later,no,False,True,False,True,,5015,0.0
 C,DB-395,standard,,amex,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,3788,0.0
 C,DB-396,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,5018,0.0
 C,DB-397,standard,,amex,invalid_data,fix_request_data,yes,False,issuer_generic,retry_later,no,False,False,False,False,,5226,0.0
 C,DB-398,hard,Processor code needs translation,visa,invalid_data,fix_request_data,no,False,insufficient_funds,retry_later,no,False,False,False,True,,3612,0.0
-D,DB-001,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,9015,0.0
-D,DB-002,standard,,visa,lost_stolen,do_not_retry,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,9931,0.0
-D,DB-003,standard,,visa,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,8379,0.0
-D,DB-004,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,7153,0.0
-D,DB-005,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,4947,0.0
-D,DB-006,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,7077,0.0
-D,DB-007,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,10023,0.0
-D,DB-008,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,8499,0.0
-D,DB-009,hard,Token setup problem,mastercard,issuer_generic,fix_request_data,yes,False,issuer_generic,retry_later,no,True,False,False,False,,7168,0.0
-D,DB-010,standard,,amex,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,7168,0.0
-D,DB-011,standard,,mastercard,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,4914,0.0
-D,DB-012,standard,,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,7269,0.0
-D,DB-013,hard,Processor code needs translation,visa,recurring_cancelled,stop_recurring,no,False,insufficient_funds,retry_later,no,False,False,False,True,,7205,0.0
-D,DB-014,standard,,mastercard,restricted_card,do_not_retry,no,False,restricted_card,do_not_retry,no,True,True,True,True,,8770,0.0
-D,DB-015,hard,Advice code sets retry wait,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,7474,0.0
-D,DB-016,standard,,visa,invalid_account,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,7474,0.0
-D,DB-017,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,9729,0.0
-D,DB-018,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,5836,0.0
-D,DB-019,standard,,discover,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,4915,0.0
-D,DB-020,standard,,discover,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,8397,0.0
-D,DB-021,standard,,discover,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,9317,0.0
-D,DB-022,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,9899,0.0
-D,DB-023,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,6281,0.0
-D,DB-024,standard,,discover,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,yes,True,True,True,False,,5516,0.0
-D,DB-025,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,5904,0.0
-D,DB-026,hard,Processor code needs translation,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,5878,0.0
-D,DB-027,standard,,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,6400,0.0
-D,DB-028,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,request_new_payment,no,True,False,False,True,,6916,0.0
-D,DB-029,standard,,mastercard,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,6778,0.0
-D,DB-030,standard,,visa,invalid_account,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,6638,0.0
-D,DB-031,hard,Advice code sets retry wait,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,9009,0.0
-D,DB-032,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,6167,0.0
-D,DB-033,standard,,mastercard,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,6223,0.0
-D,DB-034,standard,,amex,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,7913,0.0
-D,DB-035,standard,,amex,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,6318,0.0
-D,DB-036,hard,Sources disagree on advice code,mastercard,issuer_generic,do_not_retry,yes,False,issuer_generic,do_not_retry,yes,True,True,True,True,,7168,0.0
-D,DB-037,standard,,mastercard,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,8606,0.0
-D,DB-038,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,9825,0.0
-D,DB-039,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,7679,0.0
-D,DB-040,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,7680,0.0
-D,DB-041,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,11281,0.0
-D,DB-042,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,do_not_retry,no,True,True,True,True,,9402,0.0
-D,DB-043,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,5951,0.0
-D,DB-044,hard,Advice code sets retry wait,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,5210,0.0
-D,DB-045,hard,Code meaning depends on region,mastercard,limit_exceeded,retry_later,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,5631,0.0
-D,DB-046,standard,,amex,lost_stolen,do_not_retry,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,5632,0.0
-D,DB-047,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,9011,0.0
-D,DB-048,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,8192,0.0
-D,DB-049,standard,,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,6362,0.0
-D,DB-050,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,5822,0.0
-D,DB-051,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,5728,0.0
-D,DB-052,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,do_not_retry,no,True,True,True,True,,8505,0.0
-D,DB-053,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,9215,0.0
-D,DB-054,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,7447,0.0
-D,DB-055,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,9134,0.0
-D,DB-056,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,7075,0.0
-D,DB-057,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,7604,0.0
-D,DB-058,standard,,amex,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,6154,0.0
-D,DB-059,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,5457,0.0
-D,DB-060,standard,,visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,7181,0.0
-D,DB-061,hard,Token setup problem,mastercard,issuer_generic,fix_request_data,yes,False,issuer_generic,contact_issuer,no,True,False,False,False,,7200,0.0
-D,DB-062,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,7545,0.0
-D,DB-063,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,6882,0.0
-D,DB-064,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,request_new_payment,no,True,False,False,True,,7761,0.0
-D,DB-065,hard,Visa category requires data fix,visa,invalid_account,fix_request_data,no,False,invalid_account,request_new_payment,no,True,False,False,True,,8203,0.0
-D,DB-066,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,8180,0.0
-D,DB-067,hard,Visa category forbids retry,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,5836,0.0
-D,DB-068,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,6758,0.0
-D,DB-069,hard,Processor code needs translation,visa,recurring_cancelled,do_not_retry,no,False,recurring_cancelled,do_not_retry,no,True,True,True,True,,4230,0.0
-D,DB-070,standard,,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,8774,0.0
-D,DB-071,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,10057,0.0
-D,DB-072,standard,,discover,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,6802,0.0
-D,DB-073,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,8022,0.0
-D,DB-074,standard,,discover,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,8436,0.0
-D,DB-075,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,6811,0.0
-D,DB-076,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,7278,0.0
-D,DB-077,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,8294,0.0
-D,DB-078,standard,,discover,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,13619,0.0
-D,DB-079,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,7987,0.0
-D,DB-080,standard,,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,6637,0.0
-D,DB-081,hard,Repeated system or format failure needs escalation,mastercard,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,5446,0.0
-D,DB-082,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,7168,0.0
-D,DB-083,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,5903,0.0
-D,DB-084,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,5873,0.0
-D,DB-085,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,7475,0.0
-D,DB-086,standard,,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,7680,0.0
-D,DB-087,hard,Code meaning depends on region,mastercard,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,6349,0.0
-D,DB-088,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,7373,0.0
-D,DB-089,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,4521,0.0
-D,DB-090,standard,,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,4489,0.0
-D,DB-091,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,5775,0.0
-D,DB-092,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,5896,0.0
-D,DB-093,standard,,amex,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,5325,0.0
-D,DB-094,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,7576,0.0
-D,DB-095,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,6144,0.0
-D,DB-096,standard,,amex,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,5176,0.0
-D,DB-097,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,fraud_suspected,do_not_retry,no,True,False,False,True,,5582,0.0
-D,DB-098,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,7891,0.0
-D,DB-099,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,6043,0.0
-D,DB-100,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,5019,0.0
-D,DB-101,hard,Sources disagree on advice code,mastercard,issuer_generic,do_not_retry,yes,False,issuer_generic,do_not_retry,yes,True,True,True,True,,5633,0.0
-D,DB-102,standard,,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,6150,0.0
-D,DB-103,hard,Processor code needs translation,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,6138,0.0
-D,DB-104,standard,,amex,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,5735,0.0
-D,DB-105,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,4403,0.0
-D,DB-106,standard,,mastercard,lost_stolen,do_not_retry,no,False,fraud_suspected,do_not_retry,no,False,True,False,True,,6451,0.0
-D,DB-107,standard,,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,5837,0.0
-D,DB-108,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,5016,0.0
-D,DB-109,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,4507,0.0
-D,DB-110,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,4609,0.0
-D,DB-111,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,4688,0.0
-D,DB-112,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,6070,0.0
-D,DB-113,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,6341,0.0
-D,DB-114,hard,Visa category requires data fix,visa,issuer_generic,fix_request_data,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,7612,0.0
-D,DB-115,standard,,discover,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,3652,0.0
-D,DB-116,standard,,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,4197,0.0
-D,DB-117,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,request_new_payment,no,True,False,False,True,,5018,0.0
-D,DB-118,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,4302,0.0
-D,DB-119,standard,,visa,restricted_card,do_not_retry,no,False,restricted_card,do_not_retry,no,True,True,True,True,,4811,0.0
-D,DB-120,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,7385,0.0
-D,DB-121,hard,Processor code needs translation,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,4021,0.0
-D,DB-122,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,5182,0.0
-D,DB-123,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,no,True,False,False,False,,3788,0.0
-D,DB-124,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,3686,0.0
-D,DB-125,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,4712,0.0
-D,DB-126,hard,Visa category forbids retry,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,do_not_retry,no,True,True,True,True,,4798,0.0
-D,DB-127,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,3904,0.0
-D,DB-128,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,5099,0.0
-D,DB-129,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,3909,0.0
-D,DB-130,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,4301,0.0
-D,DB-131,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,fraud_suspected,do_not_retry,no,False,True,False,True,,4710,0.0
-D,DB-132,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,5268,0.0
-D,DB-133,standard,,visa,invalid_account,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,4256,0.0
-D,DB-134,standard,,discover,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,6962,0.0
-D,DB-135,standard,,amex,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,6041,0.0
-D,DB-136,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,5120,0.0
-D,DB-137,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,5133,0.0
-D,DB-138,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,5107,0.0
-D,DB-139,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,5119,0.0
-D,DB-140,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,3789,0.0
-D,DB-141,hard,Repeated system or format failure needs escalation,discover,invalid_data,escalate_to_engineer,yes,False,issuer_unavailable,retry_later,yes,False,False,False,True,,5116,0.0
-D,DB-142,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,5327,0.0
-D,DB-143,standard,,visa,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,6144,0.0
-D,DB-144,standard,,mastercard,lost_stolen,do_not_retry,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,4301,0.0
-D,DB-145,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,5938,0.0
-D,DB-146,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,7476,0.0
-D,DB-147,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,6348,0.0
-D,DB-148,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,5162,0.0
-D,DB-149,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,5569,0.0
-D,DB-150,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,4645,0.0
-D,DB-151,standard,,amex,lost_stolen,do_not_retry,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,7846,0.0
-D,DB-152,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,do_not_retry,no,False,False,False,True,,6472,0.0
-D,DB-153,standard,,mastercard,merchant_config,check_merchant_setup,yes,False,restricted_card,do_not_retry,yes,False,False,False,True,,4122,0.0
-D,DB-154,standard,,discover,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,5718,0.0
-D,DB-155,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,4496,0.0
-D,DB-156,standard,,discover,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,4617,0.0
-D,DB-157,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,4906,0.0
-D,DB-158,standard,,mastercard,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,3723,0.0
-D,DB-159,standard,,visa,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,6410,0.0
-D,DB-160,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,7087,0.0
-D,DB-161,standard,,visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,3771,0.0
-D,DB-162,hard,Repeated system or format failure needs escalation,visa,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,5242,0.0
-D,DB-163,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,do_not_retry,no,False,False,False,True,,8209,0.0
-D,DB-164,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,6105,0.0
-D,DB-165,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,yes,True,True,True,False,,3994,0.0
-D,DB-166,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,6041,0.0
-D,DB-167,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,5120,0.0
-D,DB-168,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,limit_exceeded,retry_later,no,True,False,False,True,,6963,0.0
-D,DB-169,hard,Processor code needs translation,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,6758,0.0
-D,DB-170,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,4579,0.0
-D,DB-171,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,6477,0.0
-D,DB-172,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,3379,0.0
-D,DB-173,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,4703,0.0
-D,DB-174,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,4036,0.0
-D,DB-175,hard,Token setup problem,mastercard,issuer_generic,fix_request_data,yes,False,invalid_data,fix_request_data,yes,False,True,False,True,,4292,0.0
-D,DB-176,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,3556,0.0
-D,DB-177,hard,Code meaning depends on region,mastercard,limit_exceeded,retry_later,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,4711,0.0
-D,DB-178,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,4299,0.0
-D,DB-179,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,6656,0.0
-D,DB-180,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,4711,0.0
-D,DB-181,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,5324,0.0
-D,DB-182,standard,,visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,3891,0.0
-D,DB-183,standard,,discover,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,6041,0.0
-D,DB-184,hard,Processor code needs translation,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,5018,0.0
-D,DB-185,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,3789,0.0
-D,DB-186,standard,,amex,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,3187,0.0
-D,DB-187,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,3958,0.0
-D,DB-188,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,3707,0.0
-D,DB-189,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,3868,0.0
-D,DB-190,hard,Processor code needs translation,mastercard,limit_exceeded,request_new_payment,no,False,limit_exceeded,request_new_payment,no,True,True,True,True,,4732,0.0
-D,DB-191,hard,Processor code needs translation,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,3735,0.0
-D,DB-192,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,3906,0.0
-D,DB-193,hard,Visa category requires data fix,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,4453,0.0
-D,DB-194,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,3982,0.0
-D,DB-195,hard,Repeated system or format failure needs escalation,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,4095,0.0
-D,DB-196,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,issuer_generic,do_not_retry,no,False,True,False,True,,5023,0.0
-D,DB-197,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,4705,0.0
-D,DB-198,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,3884,0.0
-D,DB-199,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,6254,0.0
-D,DB-200,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,5257,0.0
-D,DB-201,standard,,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,3958,0.0
-D,DB-202,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,4641,0.0
-D,DB-203,standard,,visa,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,4410,0.0
-D,DB-204,hard,Processor code needs translation,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,4260,0.0
-D,DB-205,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,4300,0.0
-D,DB-206,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,3889,0.0
-D,DB-207,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,5428,0.0
-D,DB-208,standard,,visa,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,4513,0.0
-D,DB-209,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,6034,0.0
-D,DB-210,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,4199,0.0
-D,DB-211,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,4301,0.0
-D,DB-212,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,6920,0.0
-D,DB-213,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,4447,0.0
-D,DB-214,standard,,mastercard,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,yes,True,True,True,False,,4402,0.0
-D,DB-215,hard,Processor code needs translation,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,4198,0.0
-D,DB-216,hard,Retry limit reached,visa,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,6963,0.0
-D,DB-217,standard,,discover,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,5940,0.0
-D,DB-218,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,5045,0.0
-D,DB-219,standard,,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,6072,0.0
-D,DB-220,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,fraud_suspected,do_not_retry,no,False,True,False,True,,4783,0.0
-D,DB-221,standard,,visa,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,5214,0.0
-D,DB-222,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,4894,0.0
-D,DB-223,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,4613,0.0
-D,DB-224,hard,Retry limit reached,visa,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,7057,0.0
-D,DB-225,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,7274,0.0
-D,DB-226,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,8137,0.0
-D,DB-227,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,8246,0.0
-D,DB-228,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,9216,0.0
-D,DB-229,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,10854,0.0
-D,DB-230,hard,Advice code sets retry wait,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,9213,0.0
-D,DB-231,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,7990,0.0
-D,DB-232,hard,Processor code needs translation,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,7312,0.0
-D,DB-233,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,9685,0.0
-D,DB-234,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,7575,0.0
-D,DB-235,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,7581,0.0
-D,DB-236,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,fraud_suspected,do_not_retry,no,True,False,False,True,,7577,0.0
-D,DB-237,hard,Processor code needs translation,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,7314,0.0
-D,DB-238,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,5176,0.0
-D,DB-239,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,7888,0.0
-D,DB-240,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,7685,0.0
-D,DB-241,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,6650,0.0
-D,DB-242,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,7790,0.0
-D,DB-243,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,6718,0.0
-D,DB-244,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,9038,0.0
-D,DB-245,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,6250,0.0
-D,DB-246,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,4915,0.0
-D,DB-247,standard,,amex,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,5218,0.0
-D,DB-248,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,5017,0.0
-D,DB-249,standard,,discover,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,5937,0.0
-D,DB-250,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,10342,0.0
-D,DB-251,standard,,amex,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,9421,0.0
-D,DB-252,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,fraud_suspected,do_not_retry,no,False,True,False,True,,7474,0.0
-D,DB-253,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,6348,0.0
-D,DB-254,standard,,mastercard,restricted_card,do_not_retry,no,False,restricted_card,do_not_retry,no,True,True,True,True,,4572,0.0
-D,DB-255,standard,,discover,lost_stolen,do_not_retry,no,False,issuer_generic,request_new_payment,no,False,False,False,True,,7102,0.0
-D,DB-256,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,8303,0.0
-D,DB-257,hard,Processor code needs translation,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,7364,0.0
-D,DB-258,standard,,mastercard,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,6861,0.0
-D,DB-259,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,3789,0.0
-D,DB-260,standard,,visa,limit_exceeded,retry_later,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,5774,0.0
-D,DB-261,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,5553,0.0
-D,DB-262,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,7001,0.0
-D,DB-263,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,10813,0.0
-D,DB-264,standard,,discover,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,16091,0.0
-D,DB-265,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,7400,0.0
-D,DB-266,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,7130,0.0
-D,DB-267,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,6486,0.0
-D,DB-268,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,no,False,issuer_unavailable,retry_later,no,True,False,False,True,,6862,0.0
-D,DB-269,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,7136,0.0
-D,DB-270,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,8118,0.0
-D,DB-271,standard,,mastercard,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,7169,0.0
-D,DB-272,hard,Recurring authorization revoked,visa,recurring_cancelled,do_not_retry,no,False,recurring_cancelled,stop_recurring,no,True,False,False,True,,8467,0.0
-D,DB-273,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,9574,0.0
-D,DB-274,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,do_not_retry,no,False,False,False,True,,7759,0.0
-D,DB-275,standard,,mastercard,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,7773,0.0
-D,DB-276,hard,Code meaning depends on region,mastercard,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,7899,0.0
-D,DB-277,standard,,discover,invalid_data,escalate_to_engineer,yes,False,issuer_unavailable,retry_later,yes,False,False,False,True,,12951,0.0
-D,DB-278,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,fraud_suspected,do_not_retry,no,True,False,False,True,,6091,0.0
-D,DB-279,standard,,visa,restricted_card,do_not_retry,no,False,restricted_card,do_not_retry,no,True,True,True,True,,6966,0.0
-D,DB-280,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,7178,0.0
-D,DB-281,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,7971,0.0
-D,DB-282,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,8802,0.0
-D,DB-283,hard,Processor code needs translation,visa,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,6561,0.0
-D,DB-284,standard,,visa,restricted_card,do_not_retry,no,False,restricted_card,do_not_retry,no,True,True,True,True,,8396,0.0
-D,DB-285,standard,,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,7814,0.0
-D,DB-286,standard,,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,6827,0.0
-D,DB-287,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,9424,0.0
-D,DB-288,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,8910,0.0
-D,DB-289,standard,,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,7884,0.0
-D,DB-290,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,24690,0.0
-D,DB-291,hard,Retry limit reached,visa,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,7463,0.0
-D,DB-292,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,10240,0.0
-D,DB-293,standard,,visa,invalid_account,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,8187,0.0
-D,DB-294,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,do_not_retry,no,False,False,False,True,,8502,0.0
-D,DB-295,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,5629,0.0
-D,DB-296,hard,Processor code needs translation,visa,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,4938,0.0
-D,DB-297,standard,,amex,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,7558,0.0
-D,DB-298,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,6964,0.0
-D,DB-299,standard,,amex,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,6565,0.0
-D,DB-300,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,7892,0.0
-D,DB-301,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,6627,0.0
-D,DB-302,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,fraud_suspected,do_not_retry,no,True,False,False,True,,6364,0.0
-D,DB-303,standard,,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,8390,0.0
-D,DB-304,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,6436,0.0
-D,DB-305,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,5645,0.0
-D,DB-306,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,8808,0.0
-D,DB-307,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,8906,0.0
-D,DB-308,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,6272,0.0
-D,DB-309,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,8167,0.0
-D,DB-310,hard,Repeated system or format failure needs escalation,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,8499,0.0
-D,DB-311,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,10137,0.0
-D,DB-312,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,7305,0.0
-D,DB-313,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,7132,0.0
-D,DB-314,standard,,visa,merchant_config,check_merchant_setup,yes,False,merchant_config,check_merchant_setup,yes,True,True,True,True,,10543,0.0
-D,DB-315,standard,,discover,restricted_card,request_new_payment,no,False,issuer_unavailable,retry_later,yes,False,False,False,False,,10445,0.0
-D,DB-316,standard,,amex,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,6827,0.0
-D,DB-317,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,6588,0.0
-D,DB-318,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,8499,0.0
-D,DB-319,standard,,discover,invalid_account,request_new_payment,no,False,invalid_data,fix_request_data,no,False,False,False,True,,9228,0.0
-D,DB-320,standard,,discover,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,6685,0.0
-D,DB-321,standard,,visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,7516,0.0
-D,DB-322,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,14862,0.0
-D,DB-323,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,7666,0.0
-D,DB-324,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,8306,0.0
-D,DB-325,standard,,mastercard,restricted_card,request_new_payment,no,False,issuer_unavailable,retry_later,yes,False,False,False,False,,8389,0.0
-D,DB-326,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,9329,0.0
-D,DB-327,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,7985,0.0
-D,DB-328,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,6861,0.0
-D,DB-329,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,6759,0.0
-D,DB-330,hard,Visa category requires data fix,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,7679,0.0
-D,DB-331,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,9212,0.0
-D,DB-332,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,7014,0.0
-D,DB-333,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,8517,0.0
-D,DB-334,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,8329,0.0
-D,DB-335,hard,Processor code needs translation,visa,limit_exceeded,request_new_payment,no,False,limit_exceeded,request_new_payment,no,True,True,True,True,,8294,0.0
-D,DB-336,hard,Processor code needs translation,visa,recurring_cancelled,do_not_retry,no,False,recurring_cancelled,do_not_retry,no,True,True,True,True,,7180,0.0
-D,DB-337,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,7226,0.0
-D,DB-338,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,6994,0.0
-D,DB-339,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,7373,0.0
-D,DB-340,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,7265,0.0
-D,DB-341,standard,,visa,invalid_account,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,7991,0.0
-D,DB-342,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,7577,0.0
-D,DB-343,hard,Processor code needs translation,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,5936,0.0
-D,DB-344,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,5019,0.0
-D,DB-345,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,5117,0.0
-D,DB-346,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,9031,0.0
-D,DB-347,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,7684,0.0
-D,DB-348,standard,,visa,lost_stolen,do_not_retry,no,False,restricted_card,do_not_retry,no,False,True,False,True,,5201,0.0
-D,DB-349,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,6356,0.0
-D,DB-350,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,8186,0.0
-D,DB-351,hard,Code meaning depends on region,mastercard,limit_exceeded,retry_later,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,6960,0.0
-D,DB-352,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,5586,0.0
-D,DB-353,standard,,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,6146,0.0
-D,DB-354,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,2763,0.0
-D,DB-355,hard,Processor code needs translation,mastercard,issuer_generic,contact_issuer,no,False,insufficient_funds,retry_later,no,False,False,False,True,,5724,0.0
-D,DB-356,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,2891,0.0
-D,DB-357,hard,Processor code needs translation,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,3578,0.0
-D,DB-358,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,4936,0.0
-D,DB-359,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,3139,0.0
-D,DB-360,hard,Visa category requires data fix,visa,invalid_account,fix_request_data,no,False,invalid_account,request_new_payment,no,True,False,False,True,,4414,0.0
-D,DB-361,standard,,mastercard,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,yes,True,True,True,False,,2558,0.0
-D,DB-362,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,3176,0.0
-D,DB-363,hard,Processor code needs translation,visa,recurring_cancelled,do_not_retry,no,False,recurring_cancelled,do_not_retry,no,True,True,True,True,,5875,0.0
-D,DB-364,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,4052,0.0
-D,DB-365,standard,,mastercard,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,yes,True,True,True,False,,3688,0.0
-D,DB-366,hard,Code meaning depends on region,mastercard,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,2968,0.0
-D,DB-367,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,2663,0.0
-D,DB-368,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,2870,0.0
-D,DB-369,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,5816,0.0
-D,DB-370,hard,Recurring authorization revoked,visa,recurring_cancelled,do_not_retry,no,False,lost_stolen,stop_recurring,no,False,False,False,True,,4629,0.0
-D,DB-371,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,2385,0.0
-D,DB-372,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,6285,0.0
-D,DB-373,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,4639,0.0
-D,DB-374,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,2866,0.0
-D,DB-375,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,3690,0.0
-D,DB-376,hard,Retry limit reached,visa,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,8863,0.0
-D,DB-377,hard,Processor code needs translation,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,6853,0.0
-D,DB-378,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,4190,0.0
-D,DB-379,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,2751,0.0
-D,DB-380,standard,,visa,lost_stolen,do_not_retry,no,False,invalid_data,fix_request_data,no,False,False,False,True,,2310,0.0
-D,DB-381,hard,Visa category requires data fix,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,4522,0.0
-D,DB-382,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,fraud_suspected,do_not_retry,no,False,True,False,True,,3158,0.0
-D,DB-383,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,2579,0.0
-D,DB-384,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,5629,0.0
-D,DB-385,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,4707,0.0
-D,DB-386,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,6323,0.0
-D,DB-387,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,4411,0.0
-D,DB-388,standard,,discover,invalid_data,escalate_to_engineer,yes,False,issuer_unavailable,retry_later,yes,False,False,False,True,,6642,0.0
-D,DB-389,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,do_not_retry,no,True,True,True,True,,3733,0.0
-D,DB-390,hard,Repeated system or format failure needs escalation,discover,invalid_data,fix_request_data,yes,False,issuer_generic,retry_later,no,False,False,False,False,,3777,0.0
-D,DB-391,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,2968,0.0
-D,DB-392,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,limit_exceeded,retry_later,no,True,False,False,True,,3279,0.0
-D,DB-393,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,3365,0.0
-D,DB-394,hard,Processor code needs translation,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,2943,0.0
-D,DB-395,standard,,amex,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,3008,0.0
-D,DB-396,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,request_new_payment,no,True,False,False,True,,3074,0.0
-D,DB-397,standard,,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,2511,0.0
-D,DB-398,hard,Processor code needs translation,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,3328,0.0
+D,DB-001,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,9053,0.0
+D,DB-002,standard,,visa,lost_stolen,do_not_retry,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,7757,0.0
+D,DB-003,standard,,visa,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,7270,0.0
+D,DB-004,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,8091,0.0
+D,DB-005,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,8931,0.0
+D,DB-006,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,4754,0.0
+D,DB-007,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,6076,0.0
+D,DB-008,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,9110,0.0
+D,DB-009,hard,Token setup problem,mastercard,issuer_generic,fix_request_data,yes,False,issuer_generic,retry_later,no,True,False,False,False,,24489,0.0
+D,DB-010,standard,,amex,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,7678,0.0
+D,DB-011,standard,,mastercard,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,7169,0.0
+D,DB-012,standard,,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,7140,0.0
+D,DB-013,hard,Processor code needs translation,visa,recurring_cancelled,stop_recurring,no,False,insufficient_funds,retry_later,no,False,False,False,True,,8765,0.0
+D,DB-014,standard,,mastercard,restricted_card,do_not_retry,no,False,restricted_card,do_not_retry,no,True,True,True,True,,8343,0.0
+D,DB-015,hard,Advice code sets retry wait,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,8488,0.0
+D,DB-016,standard,,visa,invalid_account,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,7765,0.0
+D,DB-017,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,138471,0.0
+D,DB-018,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,13669,0.0
+D,DB-019,standard,,discover,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,33955,0.0
+D,DB-020,standard,,discover,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,13263,0.0
+D,DB-021,standard,,discover,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,11737,0.0
+D,DB-022,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,8806,0.0
+D,DB-023,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,6661,0.0
+D,DB-024,standard,,discover,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,8512,0.0
+D,DB-025,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,7334,0.0
+D,DB-026,hard,Processor code needs translation,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,7632,0.0
+D,DB-027,standard,,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,5831,0.0
+D,DB-028,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,request_new_payment,no,True,False,False,True,,8169,0.0
+D,DB-029,standard,,mastercard,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,8024,0.0
+D,DB-030,standard,,visa,invalid_account,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,9270,0.0
+D,DB-031,hard,Advice code sets retry wait,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,11212,0.0
+D,DB-032,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,8842,0.0
+D,DB-033,standard,,mastercard,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,12243,0.0
+D,DB-034,standard,,amex,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,611151,0.0
+D,DB-035,standard,,amex,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,15490,0.0
+D,DB-036,hard,Sources disagree on advice code,mastercard,issuer_generic,do_not_retry,yes,False,issuer_generic,do_not_retry,yes,True,True,True,True,,13313,0.0
+D,DB-037,standard,,mastercard,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,8970,0.0
+D,DB-038,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,11208,0.0
+D,DB-039,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,8917,0.0
+D,DB-040,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,9671,0.0
+D,DB-041,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,9973,0.0
+D,DB-042,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,do_not_retry,no,True,True,True,True,,9028,0.0
+D,DB-043,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,8167,0.0
+D,DB-044,hard,Advice code sets retry wait,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,9328,0.0
+D,DB-045,hard,Code meaning depends on region,mastercard,limit_exceeded,retry_later,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,10232,0.0
+D,DB-046,standard,,amex,lost_stolen,do_not_retry,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,9645,0.0
+D,DB-047,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,7715,0.0
+D,DB-048,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,3840,0.0
+D,DB-049,standard,,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,3683,0.0
+D,DB-050,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,6395,0.0
+D,DB-051,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,4768,0.0
+D,DB-052,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,do_not_retry,no,True,True,True,True,,8831,0.0
+D,DB-053,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,13191,0.0
+D,DB-054,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,10993,0.0
+D,DB-055,hard,"Near retry limit, retry still allowed",visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,9594,0.0
+D,DB-056,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,13153,0.0
+D,DB-057,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,13599,0.0
+D,DB-058,standard,,amex,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,10167,0.0
+D,DB-059,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,9068,0.0
+D,DB-060,standard,,visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,14003,0.0
+D,DB-061,hard,Token setup problem,mastercard,issuer_generic,fix_request_data,yes,False,issuer_generic,contact_issuer,no,True,False,False,False,,10826,0.0
+D,DB-062,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,9600,0.0
+D,DB-063,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,10068,0.0
+D,DB-064,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,request_new_payment,no,True,False,False,True,,10011,0.0
+D,DB-065,hard,Visa category requires data fix,visa,invalid_account,fix_request_data,no,False,invalid_account,request_new_payment,no,True,False,False,True,,11001,0.0
+D,DB-066,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,8961,0.0
+D,DB-067,hard,Visa category forbids retry,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,10066,0.0
+D,DB-068,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,13434,0.0
+D,DB-069,hard,Processor code needs translation,visa,recurring_cancelled,do_not_retry,no,False,recurring_cancelled,do_not_retry,no,True,True,True,True,,12581,0.0
+D,DB-070,standard,,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,26956,0.0
+D,DB-071,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,12913,0.0
+D,DB-072,standard,,discover,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,11544,0.0
+D,DB-073,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,13193,0.0
+D,DB-074,standard,,discover,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,11280,0.0
+D,DB-075,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,11852,0.0
+D,DB-076,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,12101,0.0
+D,DB-077,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,13100,0.0
+D,DB-078,standard,,discover,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,10917,0.0
+D,DB-079,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,13065,0.0
+D,DB-080,standard,,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,12279,0.0
+D,DB-081,hard,Repeated system or format failure needs escalation,mastercard,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,11228,0.0
+D,DB-082,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,33033,0.0
+D,DB-083,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,insufficient_funds,retry_later,no,False,False,False,True,,29158,0.0
+D,DB-084,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,13605,0.0
+D,DB-085,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,11789,0.0
+D,DB-086,standard,,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,14644,0.0
+D,DB-087,hard,Code meaning depends on region,mastercard,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,13166,0.0
+D,DB-088,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,13436,0.0
+D,DB-089,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,15479,0.0
+D,DB-090,standard,,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,14289,0.0
+D,DB-091,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,13354,0.0
+D,DB-092,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,33306,0.0
+D,DB-093,standard,,amex,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,13749,0.0
+D,DB-094,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,13956,0.0
+D,DB-095,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,16065,0.0
+D,DB-096,standard,,amex,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,16780,0.0
+D,DB-097,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,fraud_suspected,do_not_retry,no,True,False,False,True,,32919,0.0
+D,DB-098,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,67880,0.0
+D,DB-099,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,19975,0.0
+D,DB-100,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,17318,0.0
+D,DB-101,hard,Sources disagree on advice code,mastercard,issuer_generic,do_not_retry,yes,False,issuer_generic,do_not_retry,yes,True,True,True,True,,15712,0.0
+D,DB-102,standard,,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,35189,0.0
+D,DB-103,hard,Processor code needs translation,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,13553,0.0
+D,DB-104,standard,,amex,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,12562,0.0
+D,DB-105,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,11933,0.0
+D,DB-106,standard,,mastercard,lost_stolen,do_not_retry,no,False,fraud_suspected,do_not_retry,no,False,True,False,True,,81596,0.0
+D,DB-107,standard,,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,34320,0.0
+D,DB-108,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,29832,0.0
+D,DB-109,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,12919,0.0
+D,DB-110,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,30046,0.0
+D,DB-111,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,16744,0.0
+D,DB-112,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,16126,0.0
+D,DB-113,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,15423,0.0
+D,DB-114,hard,Visa category requires data fix,visa,issuer_generic,fix_request_data,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,16844,0.0
+D,DB-115,standard,,discover,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,17432,0.0
+D,DB-116,standard,,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,14297,0.0
+D,DB-117,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,request_new_payment,no,True,False,False,True,,34426,0.0
+D,DB-118,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,123473,0.0
+D,DB-119,standard,,visa,restricted_card,do_not_retry,no,False,restricted_card,do_not_retry,no,True,True,True,True,,126858,0.0
+D,DB-120,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,18748,0.0
+D,DB-121,hard,Processor code needs translation,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,12585,0.0
+D,DB-122,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,15466,0.0
+D,DB-123,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,19260,0.0
+D,DB-124,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,15448,0.0
+D,DB-125,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,19766,0.0
+D,DB-126,hard,Visa category forbids retry,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,do_not_retry,no,True,True,True,True,,19348,0.0
+D,DB-127,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,13619,0.0
+D,DB-128,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,18070,0.0
+D,DB-129,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,33682,0.0
+D,DB-130,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,298104,0.0
+D,DB-131,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,fraud_suspected,do_not_retry,no,False,True,False,True,,19156,0.0
+D,DB-132,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,20108,0.0
+D,DB-133,standard,,visa,invalid_account,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,144121,0.0
+D,DB-134,standard,,discover,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,18350,0.0
+D,DB-135,standard,,amex,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,18451,0.0
+D,DB-136,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,16352,0.0
+D,DB-137,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,21553,0.0
+D,DB-138,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,32646,0.0
+D,DB-139,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,33147,0.0
+D,DB-140,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,20728,0.0
+D,DB-141,hard,Repeated system or format failure needs escalation,discover,invalid_data,escalate_to_engineer,yes,False,issuer_unavailable,retry_later,yes,False,False,False,True,,16536,0.0
+D,DB-142,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,19486,0.0
+D,DB-143,standard,,visa,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,16376,0.0
+D,DB-144,standard,,mastercard,lost_stolen,do_not_retry,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,129000,0.0
+D,DB-145,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,21316,0.0
+D,DB-146,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,16384,0.0
+D,DB-147,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,16039,0.0
+D,DB-148,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,21540,0.0
+D,DB-149,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,19864,0.0
+D,DB-150,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,39311,0.0
+D,DB-151,standard,,amex,lost_stolen,do_not_retry,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,127778,0.0
+D,DB-152,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,do_not_retry,no,False,False,False,True,,15423,0.0
+D,DB-153,standard,,mastercard,merchant_config,check_merchant_setup,yes,False,restricted_card,do_not_retry,yes,False,False,False,True,,29663,0.0
+D,DB-154,standard,,discover,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,12581,0.0
+D,DB-155,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,12630,0.0
+D,DB-156,standard,,discover,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,20701,0.0
+D,DB-157,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,12633,0.0
+D,DB-158,standard,,mastercard,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,10844,0.0
+D,DB-159,standard,,visa,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,16210,0.0
+D,DB-160,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,15231,0.0
+D,DB-161,standard,,visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,11595,0.0
+D,DB-162,hard,Repeated system or format failure needs escalation,visa,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,17097,0.0
+D,DB-163,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,do_not_retry,no,False,False,False,True,,14692,0.0
+D,DB-164,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,16233,0.0
+D,DB-165,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,yes,True,True,True,False,,12904,0.0
+D,DB-166,hard,Processor code needs translation,visa,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,13756,0.0
+D,DB-167,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,14912,0.0
+D,DB-168,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,18222,0.0
+D,DB-169,hard,Processor code needs translation,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,13007,0.0
+D,DB-170,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,16483,0.0
+D,DB-171,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,14542,0.0
+D,DB-172,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,14339,0.0
+D,DB-173,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,14638,0.0
+D,DB-174,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,14279,0.0
+D,DB-175,hard,Token setup problem,mastercard,issuer_generic,fix_request_data,yes,False,invalid_data,fix_request_data,yes,False,True,False,True,,15289,0.0
+D,DB-176,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,13112,0.0
+D,DB-177,hard,Code meaning depends on region,mastercard,limit_exceeded,retry_later,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,15454,0.0
+D,DB-178,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,14846,0.0
+D,DB-179,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,16969,0.0
+D,DB-180,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,31181,0.0
+D,DB-181,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,17302,0.0
+D,DB-182,standard,,visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,11571,0.0
+D,DB-183,standard,,discover,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,17607,0.0
+D,DB-184,hard,Processor code needs translation,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,13366,0.0
+D,DB-185,standard,,visa,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,29986,0.0
+D,DB-186,standard,,amex,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,10613,0.0
+D,DB-187,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,12390,0.0
+D,DB-188,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,11571,0.0
+D,DB-189,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,28057,0.0
+D,DB-190,hard,Processor code needs translation,mastercard,limit_exceeded,request_new_payment,no,False,limit_exceeded,request_new_payment,no,True,True,True,True,,11774,0.0
+D,DB-191,hard,Processor code needs translation,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,10442,0.0
+D,DB-192,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,11606,0.0
+D,DB-193,hard,Visa category requires data fix,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,13995,0.0
+D,DB-194,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,14131,0.0
+D,DB-195,hard,Repeated system or format failure needs escalation,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,13788,0.0
+D,DB-196,hard,Retry limit reached,visa,limit_exceeded,do_not_retry,no,False,issuer_generic,do_not_retry,no,False,True,False,True,,13141,0.0
+D,DB-197,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,11982,0.0
+D,DB-198,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,10559,0.0
+D,DB-199,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,15392,0.0
+D,DB-200,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,14657,0.0
+D,DB-201,standard,,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,14484,0.0
+D,DB-202,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,14841,0.0
+D,DB-203,standard,,visa,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,13307,0.0
+D,DB-204,hard,Processor code needs translation,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,11458,0.0
+D,DB-205,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,16494,0.0
+D,DB-206,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,12289,0.0
+D,DB-207,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,12629,0.0
+D,DB-208,standard,,visa,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,12740,0.0
+D,DB-209,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,13328,0.0
+D,DB-210,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,11479,0.0
+D,DB-211,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,10025,0.0
+D,DB-212,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,14446,0.0
+D,DB-213,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,29938,0.0
+D,DB-214,standard,,mastercard,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,yes,True,True,True,False,,12712,0.0
+D,DB-215,hard,Processor code needs translation,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,12391,0.0
+D,DB-216,hard,Retry limit reached,visa,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,16381,0.0
+D,DB-217,standard,,discover,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,13019,0.0
+D,DB-218,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,18176,0.0
+D,DB-219,standard,,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,16410,0.0
+D,DB-220,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,fraud_suspected,do_not_retry,no,False,True,False,True,,12565,0.0
+D,DB-221,standard,,visa,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,16480,0.0
+D,DB-222,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,14696,0.0
+D,DB-223,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,13387,0.0
+D,DB-224,hard,Retry limit reached,visa,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,14157,0.0
+D,DB-225,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,64313,0.0
+D,DB-226,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,33407,0.0
+D,DB-227,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,14536,0.0
+D,DB-228,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,15138,0.0
+D,DB-229,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,14551,0.0
+D,DB-230,hard,Advice code sets retry wait,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,15449,0.0
+D,DB-231,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,13638,0.0
+D,DB-232,hard,Processor code needs translation,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,10930,0.0
+D,DB-233,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,31089,0.0
+D,DB-234,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,18387,0.0
+D,DB-235,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,15209,0.0
+D,DB-236,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,fraud_suspected,do_not_retry,no,True,False,False,True,,16006,0.0
+D,DB-237,hard,Processor code needs translation,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,15598,0.0
+D,DB-238,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,17059,0.0
+D,DB-239,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,14173,0.0
+D,DB-240,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,37061,0.0
+D,DB-241,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,15238,0.0
+D,DB-242,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,67069,0.0
+D,DB-243,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,15598,0.0
+D,DB-244,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,escalate_to_engineer,yes,True,False,False,True,,18295,0.0
+D,DB-245,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,16438,0.0
+D,DB-246,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,34797,0.0
+D,DB-247,standard,,amex,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,18679,0.0
+D,DB-248,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,14359,0.0
+D,DB-249,standard,,discover,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,18228,0.0
+D,DB-250,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,18532,0.0
+D,DB-251,standard,,amex,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,29749,0.0
+D,DB-252,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,fraud_suspected,do_not_retry,no,False,True,False,True,,15950,0.0
+D,DB-253,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,13894,0.0
+D,DB-254,standard,,mastercard,restricted_card,do_not_retry,no,False,restricted_card,do_not_retry,no,True,True,True,True,,14079,0.0
+D,DB-255,standard,,discover,lost_stolen,do_not_retry,no,False,issuer_generic,request_new_payment,no,False,False,False,True,,13116,0.0
+D,DB-256,hard,Advice code sets retry wait,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,32235,0.0
+D,DB-257,hard,Processor code needs translation,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,12845,0.0
+D,DB-258,standard,,mastercard,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,11585,0.0
+D,DB-259,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,14434,0.0
+D,DB-260,standard,,visa,limit_exceeded,retry_later,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,13314,0.0
+D,DB-261,hard,Recurring authorization revoked,visa,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,13618,0.0
+D,DB-262,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,18123,0.0
+D,DB-263,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,17735,0.0
+D,DB-264,standard,,discover,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,10810,0.0
+D,DB-265,hard,Card replaced by issuer,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,13093,0.0
+D,DB-266,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,14725,0.0
+D,DB-267,standard,,mastercard,lost_stolen,do_not_retry,no,False,lost_stolen,request_new_payment,no,True,False,False,True,,12615,0.0
+D,DB-268,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,17747,0.0
+D,DB-269,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,13631,0.0
+D,DB-270,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,12630,0.0
+D,DB-271,standard,,mastercard,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,13164,0.0
+D,DB-272,hard,Recurring authorization revoked,visa,recurring_cancelled,do_not_retry,no,False,recurring_cancelled,stop_recurring,no,True,False,False,True,,11568,0.0
+D,DB-273,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,10959,0.0
+D,DB-274,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,do_not_retry,no,False,False,False,True,,13616,0.0
+D,DB-275,standard,,mastercard,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,11641,0.0
+D,DB-276,hard,Code meaning depends on region,mastercard,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,13729,0.0
+D,DB-277,standard,,discover,invalid_data,escalate_to_engineer,yes,False,issuer_unavailable,retry_later,yes,False,False,False,True,,17431,0.0
+D,DB-278,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,fraud_suspected,do_not_retry,no,True,False,False,True,,11376,0.0
+D,DB-279,standard,,visa,restricted_card,do_not_retry,no,False,restricted_card,do_not_retry,no,True,True,True,True,,13774,0.0
+D,DB-280,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,15728,0.0
+D,DB-281,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,64786,0.0
+D,DB-282,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,19612,0.0
+D,DB-283,hard,Processor code needs translation,visa,lost_stolen,do_not_retry,no,False,lost_stolen,do_not_retry,no,True,True,True,True,,14994,0.0
+D,DB-284,standard,,visa,restricted_card,do_not_retry,no,False,restricted_card,do_not_retry,no,True,True,True,True,,15853,0.0
+D,DB-285,standard,,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,15044,0.0
+D,DB-286,standard,,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,15115,0.0
+D,DB-287,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,15769,0.0
+D,DB-288,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,32693,0.0
+D,DB-289,standard,,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,16248,0.0
+D,DB-290,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,13107,0.0
+D,DB-291,hard,Retry limit reached,visa,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,64240,0.0
+D,DB-292,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,12964,0.0
+D,DB-293,standard,,visa,invalid_account,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,13371,0.0
+D,DB-294,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,insufficient_funds,do_not_retry,no,False,False,False,True,,15606,0.0
+D,DB-295,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,13697,0.0
+D,DB-296,hard,Processor code needs translation,visa,invalid_account,contact_issuer,no,False,invalid_account,request_new_payment,no,True,False,False,True,,12109,0.0
+D,DB-297,standard,,amex,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,14436,0.0
+D,DB-298,hard,Retry limit reached,visa,insufficient_funds,do_not_retry,no,False,insufficient_funds,retry_later,no,True,False,False,True,,67645,0.0
+D,DB-299,standard,,amex,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,13513,0.0
+D,DB-300,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,14581,0.0
+D,DB-301,standard,,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,do_not_retry,no,True,False,False,True,,13191,0.0
+D,DB-302,hard,Advice code sets retry wait,mastercard,fraud_suspected,retry_later,no,False,fraud_suspected,do_not_retry,no,True,False,False,True,,14411,0.0
+D,DB-303,standard,,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,12567,0.0
+D,DB-304,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,13716,0.0
+D,DB-305,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,10008,0.0
+D,DB-306,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,16481,0.0
+D,DB-307,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,16792,0.0
+D,DB-308,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,63588,0.0
+D,DB-309,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,15093,0.0
+D,DB-310,hard,Repeated system or format failure needs escalation,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,13924,0.0
+D,DB-311,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,16855,0.0
+D,DB-312,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,13517,0.0
+D,DB-313,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,retry_later,no,True,False,False,True,,11474,0.0
+D,DB-314,standard,,visa,merchant_config,check_merchant_setup,yes,False,merchant_config,check_merchant_setup,yes,True,True,True,True,,13118,0.0
+D,DB-315,standard,,discover,restricted_card,request_new_payment,no,False,issuer_unavailable,retry_later,yes,False,False,False,False,,15368,0.0
+D,DB-316,standard,,amex,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,11666,0.0
+D,DB-317,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,14318,0.0
+D,DB-318,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,16277,0.0
+D,DB-319,standard,,discover,invalid_account,request_new_payment,no,False,invalid_data,fix_request_data,no,False,False,False,True,,32322,0.0
+D,DB-320,standard,,discover,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,12200,0.0
+D,DB-321,standard,,visa,issuer_unavailable,retry_later,no,False,issuer_unavailable,retry_later,no,True,True,True,True,,12617,0.0
+D,DB-322,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,13106,0.0
+D,DB-323,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,31843,0.0
+D,DB-324,hard,Advice code allows later retry,mastercard,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,13825,0.0
+D,DB-325,standard,,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,13546,0.0
+D,DB-326,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,14904,0.0
+D,DB-327,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,15718,0.0
+D,DB-328,standard,,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,11977,0.0
+D,DB-329,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,14028,0.0
+D,DB-330,hard,Visa category requires data fix,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,12555,0.0
+D,DB-331,standard,,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,10851,0.0
+D,DB-332,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,16637,0.0
+D,DB-333,standard,,mastercard,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,17908,0.0
+D,DB-334,standard,,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,14538,0.0
+D,DB-335,hard,Processor code needs translation,visa,limit_exceeded,request_new_payment,no,False,limit_exceeded,request_new_payment,no,True,True,True,True,,11012,0.0
+D,DB-336,hard,Processor code needs translation,visa,recurring_cancelled,do_not_retry,no,False,recurring_cancelled,do_not_retry,no,True,True,True,True,,10346,0.0
+D,DB-337,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,13408,0.0
+D,DB-338,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,10937,0.0
+D,DB-339,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,do_not_retry,no,True,True,True,True,,11137,0.0
+D,DB-340,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,11833,0.0
+D,DB-341,standard,,visa,invalid_account,request_new_payment,no,False,insufficient_funds,retry_later,no,False,False,False,True,,8762,0.0
+D,DB-342,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,10413,0.0
+D,DB-343,hard,Processor code needs translation,visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,11999,0.0
+D,DB-344,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,14442,0.0
+D,DB-345,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,10760,0.0
+D,DB-346,standard,,amex,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,10597,0.0
+D,DB-347,hard,Processor code needs translation,mastercard,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,10316,0.0
+D,DB-348,standard,,visa,lost_stolen,do_not_retry,no,False,restricted_card,do_not_retry,no,False,True,False,True,,11124,0.0
+D,DB-349,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,10751,0.0
+D,DB-350,hard,Card type cannot support recurring,mastercard,restricted_card,request_new_payment,no,False,issuer_generic,contact_issuer,no,False,False,False,True,,13656,0.0
+D,DB-351,hard,Code meaning depends on region,mastercard,limit_exceeded,retry_later,no,False,authentication_required,retry_with_authentication,no,False,False,False,True,,13104,0.0
+D,DB-352,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,13275,0.0
+D,DB-353,standard,,visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,14558,0.0
+D,DB-354,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,14728,0.0
+D,DB-355,hard,Processor code needs translation,mastercard,issuer_generic,contact_issuer,no,False,insufficient_funds,retry_later,no,False,False,False,True,,10343,0.0
+D,DB-356,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,14228,0.0
+D,DB-357,hard,Processor code needs translation,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,13522,0.0
+D,DB-358,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,11139,0.0
+D,DB-359,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,12617,0.0
+D,DB-360,hard,Visa category requires data fix,visa,invalid_account,fix_request_data,no,False,invalid_account,request_new_payment,no,True,False,False,True,,15051,0.0
+D,DB-361,standard,,mastercard,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,yes,True,True,True,False,,14950,0.0
+D,DB-362,standard,,visa,restricted_card,request_new_payment,no,False,restricted_card,request_new_payment,no,True,True,True,True,,14441,0.0
+D,DB-363,hard,Processor code needs translation,visa,recurring_cancelled,do_not_retry,no,False,recurring_cancelled,do_not_retry,no,True,True,True,True,,12874,0.0
+D,DB-364,hard,Cardholder cancelled recurring payments,mastercard,recurring_cancelled,stop_recurring,no,False,recurring_cancelled,stop_recurring,no,True,True,True,True,,16548,0.0
+D,DB-365,standard,,mastercard,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,yes,True,True,True,False,,12851,0.0
+D,DB-366,hard,Code meaning depends on region,mastercard,authentication_required,retry_with_authentication,no,False,authentication_required,retry_with_authentication,no,True,True,True,True,,15336,0.0
+D,DB-367,hard,Processor code needs translation,mastercard,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,no,True,True,True,False,,13127,0.0
+D,DB-368,hard,Retry limit reached,visa,issuer_unavailable,do_not_retry,yes,False,issuer_unavailable,retry_later,yes,True,False,False,True,,109754,0.0
+D,DB-369,hard,"Near retry limit, retry still allowed",visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,17744,0.0
+D,DB-370,hard,Recurring authorization revoked,visa,recurring_cancelled,do_not_retry,no,False,lost_stolen,stop_recurring,no,False,False,False,True,,32395,0.0
+D,DB-371,hard,Retry limit reached,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,30753,0.0
+D,DB-372,hard,Visa category forbids retry,visa,issuer_generic,do_not_retry,no,False,issuer_generic,contact_issuer,no,True,False,False,True,,31909,0.0
+D,DB-373,standard,,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,14244,0.0
+D,DB-374,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,13871,0.0
+D,DB-375,standard,,visa,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,13991,0.0
+D,DB-376,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,request_new_payment,no,False,fraud_suspected,do_not_retry,no,False,False,False,True,,19289,0.0
+D,DB-377,hard,Processor code needs translation,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,13574,0.0
+D,DB-378,hard,Visa category allows later retry,visa,issuer_generic,retry_later,no,False,issuer_generic,retry_later,no,True,True,True,True,,15165,0.0
+D,DB-379,hard,Processor code needs translation,visa,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,12579,0.0
+D,DB-380,standard,,visa,lost_stolen,do_not_retry,no,False,invalid_data,fix_request_data,no,False,False,False,True,,15284,0.0
+D,DB-381,hard,Visa category requires data fix,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,14255,0.0
+D,DB-382,hard,Advice code forbids retry,mastercard,limit_exceeded,do_not_retry,no,False,fraud_suspected,do_not_retry,no,False,True,False,True,,14138,0.0
+D,DB-383,hard,Processor code needs translation,visa,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,14329,0.0
+D,DB-384,standard,,visa,invalid_account,request_new_payment,no,False,invalid_account,request_new_payment,no,True,True,True,True,,13312,0.0
+D,DB-385,hard,"Near retry limit, retry still allowed",visa,issuer_unavailable,retry_later,yes,False,issuer_unavailable,retry_later,yes,True,True,True,True,,13415,0.0
+D,DB-386,hard,Stale credential with update available,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,11905,0.0
+D,DB-387,hard,Advice code forbids retry,mastercard,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,14533,0.0
+D,DB-388,standard,,discover,invalid_data,escalate_to_engineer,yes,False,issuer_unavailable,retry_later,yes,False,False,False,True,,12067,0.0
+D,DB-389,hard,Advice code forbids retry,mastercard,insufficient_funds,do_not_retry,no,False,insufficient_funds,do_not_retry,no,True,True,True,True,,12386,0.0
+D,DB-390,hard,Repeated system or format failure needs escalation,discover,invalid_data,fix_request_data,yes,False,issuer_generic,retry_later,no,False,False,False,False,,31436,0.0
+D,DB-391,standard,,visa,fraud_suspected,do_not_retry,no,False,fraud_suspected,do_not_retry,no,True,True,True,True,,13898,0.0
+D,DB-392,hard,"Near retry limit, retry still allowed",visa,limit_exceeded,retry_later,no,False,limit_exceeded,retry_later,no,True,True,True,True,,15796,0.0
+D,DB-393,standard,,mastercard,expired_card,update_credential,no,False,expired_card,update_credential,no,True,True,True,True,,62657,0.0
+D,DB-394,hard,Processor code needs translation,mastercard,insufficient_funds,retry_later,no,False,insufficient_funds,retry_later,no,True,True,True,True,,10984,0.0
+D,DB-395,standard,,amex,issuer_generic,contact_issuer,no,False,issuer_generic,contact_issuer,no,True,True,True,True,,12374,0.0
+D,DB-396,hard,Advice code forbids retry,mastercard,issuer_generic,do_not_retry,no,False,issuer_generic,request_new_payment,no,True,False,False,True,,14816,0.0
+D,DB-397,standard,,amex,invalid_data,fix_request_data,yes,False,invalid_data,fix_request_data,yes,True,True,True,True,,15083,0.0
+D,DB-398,hard,Processor code needs translation,visa,invalid_data,fix_request_data,no,False,invalid_data,fix_request_data,no,True,True,True,True,,10602,0.0

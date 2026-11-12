@@ -17,6 +17,7 @@ No cardholder, merchant or company data is included.
 | `decline_kb_codes_review.csv` | The codes in spreadsheet form |
 | `kb_documents.jsonl` | 213 retrieval documents generated from the knowledge base (variant D) |
 | `benchmark_scenarios_answer_key.csv` | 398 payment-level scenarios with answers; 198 are hard cases where context changes the right action |
+| `archive_visa15/` | The answer keys and retrieval documents of the first version, which used Visa's earlier limit of 15 attempts |
 | `Decline_Study_Labeling_Varun.xlsx` | The blank workbook given to the independent expert (25 timed and 75 labeling scenarios, no answers) |
 | `merchant_transactions.csv` | 44,341 synthetic stored-card transactions for 30 merchants over 90 days |
 | `merchant_profiles.csv` | Merchant type, region and size |
@@ -41,7 +42,9 @@ No cardholder, merchant or company data is included.
 
 Variants B to D use Qwen3.5-9B (`qwen/qwen3.5-9b`) through OpenRouter, pinned to DeepInfra's unquantized BF16 deployment,
 temperature 0, thinking disabled, at most 2,048 output tokens per call. Retrieval uses Qwen3-Embedding-0.6B
-(Hugging Face revision `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3`). The runs reported in the paper were made on 5 and 6 November 2026.
+(Hugging Face revision `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3`). Variants B and C were run on 5 and 6 November 2026 and variant D on 11 and 12 November 2026, after the
+benchmark was updated to Visa's current reattempt limit (variants B and C were rescored against the updated key; they see
+neither the answer key nor the retrieval documents, so the update does not change their outputs).
 
 ## Reproducing the paper
 
@@ -84,8 +87,8 @@ for v in B C D; do for r in 1 2 3; do
 done; done
 ```
 
-Runs resume where they stop, so an interrupted run can be restarted with the same command. The whole study used about
-16.8 million tokens and cost under two US dollars. Then score as in step 1.
+Runs resume where they stop, so an interrupted run can be restarted with the same command. The whole study, including the pilot
+and the rerun of variant D, used about 26 million tokens in 12,400 requests and cost US$2.64. Then score as in step 1.
 
 To test a different model, change `LLM_MODEL` (and `LLM_BASE_URL` for another provider). Variant D embeds the
 retrieval documents on the CPU the first time it runs (`--embed local`); `--embed api` uses the provider's embedding endpoint instead.
@@ -107,9 +110,10 @@ python make_varun_workbook.py . decline_kb_schema.sql decline_kb_seed.sql Declin
   report or scenario identifier appears in them.
 - **The lookup table and the answer key share a source.** Both are derived from the knowledge base, which is why variant A
   is perfect on standard cases. The hard cases are where context changes the right action.
-- **Visa reattempt limit.** The benchmark uses Visa's published rule of at most 15 reattempts in 30 days for declines the issuer
-  cannot approve at this time ("Updates to Rules for Declined Transaction Resubmission and Use of Authorization Response Codes",
-  Visa Rules, September 2020, effective April 2021). Network rules change; check the current rules before relying on them.
+- **Visa reattempt limit.** The benchmark follows the current Visa Rules (Visa Core Rules and Visa Product and Service Rules,
+  Table 7-2): at most 20 authorization attempts per card in 30 days for decline categories 2, 3 and 4, and none for category 1.
+  Visa raised the limit from 15 to 20 on 25 May 2025. The 40 retry-limit scenarios have 15 to 24 earlier attempts, so half are
+  beyond the limit and half are close to it but still allowed.
 - **Hallucination flags** are automated and only detect codes that do not exist on the scenario's network.
   Misreadings of real codes appear as category errors instead.
 - **Card-network documentation changes.** The knowledge base is a snapshot of public sources as of 2026; each code links to its source.

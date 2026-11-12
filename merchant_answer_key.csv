@@ -1,27 +1,27 @@
 merchant_id,impact_type,revenue_rank,pattern,category,action,affected_declines,recoverable_amount,description
-M001,risk,,excessive_soft_retries,issuer_generic,do_not_retry,505,0.00,Soft declines are retried beyond the Visa reattempt limit.
+M001,risk,,excessive_soft_retries,issuer_generic,do_not_retry,267,0.00,Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.
 M001,risk,,retrying_hard_declines,lost_stolen,do_not_retry,63,0.00,"The merchant keeps retrying declines that will never approve, risking network fees."
 M002,revenue,1,prepaid_on_subscription,restricted_card,request_new_payment,27,3500.94,Prepaid or single-use cards are used for subscriptions and fail on renewal.
 M003,revenue,1,merchant_setup_error,merchant_config,check_merchant_setup,46,3683.35,Declines for invalid merchant started on a specific date across many cards.
 M003,revenue,2,issuer_outage,issuer_unavailable,retry_later,35,2963.51,One issuer was unavailable for several hours; retry the affected payments.
 M003,risk,,revoked_still_billed,recurring_cancelled,stop_recurring,55,0.00,Customers who revoked recurring payments are still being billed.
 M004,revenue,1,missing_3ds_europe,authentication_required,retry_with_authentication,58,832.77,"European payments need 3-D Secure, which the merchant is not sending."
-M004,risk,,excessive_soft_retries,issuer_generic,do_not_retry,373,0.00,Soft declines are retried beyond the Visa reattempt limit.
+M004,risk,,excessive_soft_retries,issuer_generic,do_not_retry,196,0.00,Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.
 M005,none,,none,,,0,0.00,Background declines only; nothing to fix.
 M006,revenue,1,integration_regression,invalid_data,fix_request_data,79,1135.07,Format errors started after a change to the merchant integration.
-M006,risk,,excessive_soft_retries,issuer_generic,do_not_retry,844,0.00,Soft declines are retried beyond the Visa reattempt limit.
+M006,risk,,excessive_soft_retries,issuer_generic,do_not_retry,550,0.00,Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.
 M007,revenue,1,merchant_setup_error,merchant_config,check_merchant_setup,58,7913.64,Declines for invalid merchant started on a specific date across many cards.
 M007,risk,,revoked_still_billed,recurring_cancelled,stop_recurring,95,0.00,Customers who revoked recurring payments are still being billed.
 M008,revenue,1,missing_3ds_europe,authentication_required,retry_with_authentication,20,3716.84,"European payments need 3-D Secure, which the merchant is not sending."
 M008,risk,,retrying_hard_declines,lost_stolen,do_not_retry,78,0.00,"The merchant keeps retrying declines that will never approve, risking network fees."
 M009,revenue,1,expired_card_spike,expired_card,update_credential,37,4116.24,Many stored cards have expired; enable an account updater or network tokens.
-M009,risk,,excessive_soft_retries,issuer_generic,do_not_retry,403,0.00,Soft declines are retried beyond the Visa reattempt limit.
+M009,risk,,excessive_soft_retries,issuer_generic,do_not_retry,200,0.00,Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.
 M010,revenue,1,expired_card_spike,expired_card,update_credential,70,9244.52,Many stored cards have expired; enable an account updater or network tokens.
 M010,risk,,revoked_still_billed,recurring_cancelled,stop_recurring,104,0.00,Customers who revoked recurring payments are still being billed.
 M011,revenue,1,merchant_setup_error,merchant_config,check_merchant_setup,58,7591.87,Declines for invalid merchant started on a specific date across many cards.
 M012,none,,none,,,0,0.00,Background declines only; nothing to fix.
 M013,revenue,1,expired_card_spike,expired_card,update_credential,50,6448.33,Many stored cards have expired; enable an account updater or network tokens.
-M013,risk,,excessive_soft_retries,issuer_generic,do_not_retry,392,0.00,Soft declines are retried beyond the Visa reattempt limit.
+M013,risk,,excessive_soft_retries,issuer_generic,do_not_retry,200,0.00,Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.
 M014,revenue,1,merchant_setup_error,merchant_config,check_merchant_setup,24,4024.25,Declines for invalid merchant started on a specific date across many cards.
 M015,revenue,1,issuer_outage,issuer_unavailable,retry_later,55,5766.06,One issuer was unavailable for several hours; retry the affected payments.
 M015,risk,,revoked_still_billed,recurring_cancelled,stop_recurring,41,0.00,Customers who revoked recurring payments are still being billed.
@@ -33,7 +33,7 @@ M019,none,,none,,,0,0.00,Background declines only; nothing to fix.
 M020,revenue,1,missing_3ds_europe,authentication_required,retry_with_authentication,35,8660.11,"European payments need 3-D Secure, which the merchant is not sending."
 M021,revenue,1,integration_regression,invalid_data,fix_request_data,44,7791.73,Format errors started after a change to the merchant integration.
 M021,revenue,2,merchant_setup_error,merchant_config,check_merchant_setup,51,7624.24,Declines for invalid merchant started on a specific date across many cards.
-M021,risk,,excessive_soft_retries,issuer_generic,do_not_retry,277,0.00,Soft declines are retried beyond the Visa reattempt limit.
+M021,risk,,excessive_soft_retries,issuer_generic,do_not_retry,159,0.00,Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.
 M022,revenue,1,expired_card_spike,expired_card,update_credential,74,1078.30,Many stored cards have expired; enable an account updater or network tokens.
 M022,revenue,2,issuer_outage,issuer_unavailable,retry_later,64,897.30,One issuer was unavailable for several hours; retry the affected payments.
 M023,revenue,1,issuer_outage,issuer_unavailable,retry_later,39,6601.02,One issuer was unavailable for several hours; retry the affected payments.
@@ -45,12 +45,12 @@ M025,revenue,1,issuer_outage,issuer_unavailable,retry_later,82,10182.51,One issu
 M025,revenue,2,merchant_setup_error,merchant_config,check_merchant_setup,40,4905.51,Declines for invalid merchant started on a specific date across many cards.
 M026,none,,none,,,0,0.00,Background declines only; nothing to fix.
 M027,revenue,1,prepaid_on_subscription,restricted_card,request_new_payment,45,6005.59,Prepaid or single-use cards are used for subscriptions and fail on renewal.
-M027,risk,,excessive_soft_retries,issuer_generic,do_not_retry,755,0.00,Soft declines are retried beyond the Visa reattempt limit.
+M027,risk,,excessive_soft_retries,issuer_generic,do_not_retry,514,0.00,Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.
 M027,risk,,retrying_hard_declines,lost_stolen,do_not_retry,69,0.00,"The merchant keeps retrying declines that will never approve, risking network fees."
 M028,revenue,1,missing_3ds_europe,authentication_required,retry_with_authentication,64,8284.22,"European payments need 3-D Secure, which the merchant is not sending."
 M028,revenue,2,issuer_outage,issuer_unavailable,retry_later,42,5985.70,One issuer was unavailable for several hours; retry the affected payments.
-M028,risk,,excessive_soft_retries,issuer_generic,do_not_retry,393,0.00,Soft declines are retried beyond the Visa reattempt limit.
+M028,risk,,excessive_soft_retries,issuer_generic,do_not_retry,239,0.00,Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.
 M029,revenue,1,merchant_setup_error,merchant_config,check_merchant_setup,67,11239.77,Declines for invalid merchant started on a specific date across many cards.
-M029,risk,,excessive_soft_retries,issuer_generic,do_not_retry,286,0.00,Soft declines are retried beyond the Visa reattempt limit.
+M029,risk,,excessive_soft_retries,issuer_generic,do_not_retry,159,0.00,Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.
 M029,risk,,revoked_still_billed,recurring_cancelled,stop_recurring,58,0.00,Customers who revoked recurring payments are still being billed.
-M030,risk,,excessive_soft_retries,issuer_generic,do_not_retry,211,0.00,Soft declines are retried beyond the Visa reattempt limit.
+M030,risk,,excessive_soft_retries,issuer_generic,do_not_retry,88,0.00,Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.

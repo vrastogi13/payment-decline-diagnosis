@@ -11,12 +11,13 @@ START = datetime(2026, 7, 1)
 DAYS = 90
 
 RISK = {'retrying_hard_declines', 'excessive_soft_retries', 'revoked_still_billed'}
+VISA_LIMIT = 20  # Visa: at most 20 authorization attempts per card in 30 days (decline categories 2-4)
 # Pattern library. impact = declined amount the merchant could recover by fixing it.
 PATTERNS = {
  'expired_card_spike':     ('expired_card', 'update_credential', 'Many stored cards have expired; enable an account updater or network tokens.'),
  'issuer_outage':          ('issuer_unavailable', 'retry_later', 'One issuer was unavailable for several hours; retry the affected payments.'),
  'retrying_hard_declines': ('lost_stolen', 'do_not_retry', 'The merchant keeps retrying declines that will never approve, risking network fees.'),
- 'excessive_soft_retries': ('issuer_generic', 'do_not_retry', 'Soft declines are retried beyond the Visa reattempt limit.'),
+ 'excessive_soft_retries': ('issuer_generic', 'do_not_retry', 'Soft declines are retried beyond the Visa limit of 20 attempts per card in 30 days.'),
  'prepaid_on_subscription':('restricted_card', 'request_new_payment', 'Prepaid or single-use cards are used for subscriptions and fail on renewal.'),
  'missing_3ds_europe':     ('authentication_required', 'retry_with_authentication', 'European payments need 3-D Secure, which the merchant is not sending.'),
  'integration_regression': ('invalid_data', 'fix_request_data', 'Format errors started after a change to the merchant integration.'),
@@ -57,7 +58,7 @@ for i in range(1, 31):
         pool = [p for p in PATTERNS if p != 'missing_3ds_europe'] + (['missing_3ds_europe'] * 3 if m['region'] == 'Europe' else [])
         chosen = rng.sample(sorted(set(pool)), rng.choice([1, 2, 2, 3]))
         if m['region'] == 'Europe' and 'missing_3ds_europe' not in chosen: chosen[0] = 'missing_3ds_europe'
-    impacts = {p: 0.0 for p in chosen}; counts = {p: 0 for p in chosen}
+    impacts = {p: 0.0 for p in chosen}; counts = {p: 0 for p in chosen}; compliant = set()
     # Background traffic: each card billed monthly (recurring) or occasionally (one-time)
     for c in cards:
         recurring = rng.random() < rec_share
@@ -93,12 +94,17 @@ for i in range(1, 31):
                     counts[p] += 1
                 impacts[p] += c['price'] * 0.2  # mostly fee risk, little recoverable revenue
         elif p == 'excessive_soft_retries':
+            over = 0
             for c in affected[:max(8, k // 2)]:
                 d = rng.randint(0, 40)
                 first = txn(m, d, c, c['price'], False, 'visa', rng.choice(['05', '51']))
-                for a in range(2, rng.randint(17, 26)):
-                    txn(m, min(DAYS - 1, d + a), c, c['price'], False, 'visa', '05', attempt=a, retry_of=first); counts[p] += 1
+                n_attempts = rng.randint(17, 26) - 1   # total attempts on this card, first one included
+                for a in range(2, n_attempts + 1):
+                    txn(m, min(DAYS - 1, d + a), c, c['price'], False, 'visa', '05', attempt=a, retry_of=first)
+                    if n_attempts > VISA_LIMIT: counts[p] += 1
+                if n_attempts > VISA_LIMIT: over += 1
                 impacts[p] += c['price'] * 0.3
+            if over == 0: compliant.add(p)   # every chain stayed within the Visa limit, so there is nothing to report
         elif p == 'prepaid_on_subscription':
             for c in affected:
                 d = rng.randint(30, DAYS - 1); mac = rng.choice(['MAC 40', 'MAC 41'])
@@ -128,6 +134,7 @@ for i in range(1, 31):
                 for a, dd in enumerate(range(d, DAYS, 30), 1):
                     txn(m, dd, c, c['price'], False, 'visa', code, attempt=a); counts[p] += 1
                 impacts[p] += c['price'] * 0.1  # cannot be recovered; the issue is billing customers who cancelled
+    chosen = [q for q in chosen if q not in compliant]
     profiles.append(dict(merchant_id=m['merchant_id'], merchant_type=mtype, region=m['region'], stored_cards=n_cards,
                          planted_patterns=len(chosen)))
     # Revenue patterns are ranked by recoverable amount. Risk patterns (fees, billing customers who cancelled) are flagged, not ranked.

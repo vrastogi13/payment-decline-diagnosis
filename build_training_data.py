@@ -72,7 +72,7 @@ for p in pmap:
                      text=f"First Data processor code {p['processor_code']} ({p['processor_label']}) corresponds to {name(t)} ({t['short_name']}). Diagnose it as {lab(t['category'])} and follow the guidance for that code: {lab(t['primary_action'])}.",
                      metadata=dict(type='processor_map', processor_code=p['processor_code'])))
 GUIDES = [
- ('guide:visa_reattempt', 'Visa reattempt limit', 'Visa limits how often a merchant may retry a declined card. Under the rule assumed in this study, a card may be reattempted at most 15 times in 30 days by the same merchant; after that, stop retrying, because further attempts incur fees. Verify against Visa\'s current published rules.'),
+ ('guide:visa_reattempt', 'Visa reattempt limit', 'Visa limits how often a merchant may retry a declined card. Under the Visa Rules, a merchant may make at most 20 authorization attempts on the same card in 30 days for declines in categories 2, 3 and 4 (issuer cannot approve now, data quality, generic). Once a card has 20 attempts in the last 30 days, stop retrying, because further attempts incur fees. Category 1 declines (issuer will never approve) must never be retried.'),
  ('guide:advice_override', 'Advice codes override response codes', 'A Mastercard merchant advice code or Visa decline category, when present, takes priority over the response code\'s usual guidance. For example, insufficient funds normally allows a later retry, but with Mastercard advice code 03 the merchant must not retry.'),
  ('guide:mc65_region', 'Mastercard 65 depends on region', 'Mastercard response code 65 signals that strong customer authentication is required for payments in Europe under PSD2; outside Europe it usually means an activity count limit was exceeded and a later retry may succeed.'),
  ('guide:cardholder_messages', 'Never expose raw decline reasons to cardholders', 'Processors such as Adyen instruct merchants not to show raw decline responses to shoppers, because detailed reasons can help fraudsters. Give the cardholder a general message and keep the specific reason for the merchant and support team.'),
@@ -107,7 +107,7 @@ for p in pmap:
             f"First Data code {p['processor_code']} corresponds to {name(t)}. {t['merchant_explanation']}", t['cardholder_message']))
 for code in ['05', '51', '91']:
     c = by_id[f'visa:iso_response:{code}']
-    add(f'{name(c)} on a card we have already retried 18 times this month. Retry again?',
+    add(f'{name(c)} on a card we have already retried 22 times this month. Retry again?',
         answer_block(c['category'], 'do_not_retry', 'no', False, 'The Visa reattempt limit for this card has been reached, so stop retrying to avoid fees.', c['cardholder_message']))
 rng.shuffle(ex)
 n_val = max(1, len(ex) // 10)

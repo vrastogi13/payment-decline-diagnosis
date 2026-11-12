@@ -27,11 +27,11 @@
     "revenue_ordering_accuracy": NaN
   },
   "D": {
-    "pattern_precision": 0.41333333333333333,
-    "pattern_recall": 0.6078431372549019,
-    "pattern_f1": 0.4920634920634921,
+    "pattern_precision": 0.45454545454545453,
+    "pattern_recall": 0.6862745098039216,
+    "pattern_f1": 0.546875,
     "clean_false_alarm_rate": 0.75,
-    "action_accuracy": 0.7741935483870968,
+    "action_accuracy": 0.7714285714285715,
     "top_revenue_correct": 0.4782608695652174,
     "revenue_ordering_accuracy": 1.0
   }

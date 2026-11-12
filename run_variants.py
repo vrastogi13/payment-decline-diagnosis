@@ -71,7 +71,9 @@ class Retriever:
                                              revision=os.environ.get('EMBED_REVISION', '97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3'))
         else:
             self.api, self.embed_model = client(), os.environ.get('EMBED_MODEL', 'Qwen/Qwen3-Embedding-0.6B')
-        cache = path(f'kb_embeddings_{mode}.npy')
+        import hashlib
+        digest = hashlib.sha256('\n'.join(texts).encode()).hexdigest()[:12]
+        cache = path(f'kb_embeddings_{mode}_{digest}.npy')  # a changed document set gets fresh embeddings
         if os.path.exists(cache): self.mat = np.load(cache)
         else: self.mat = self._embed(texts, query=False); np.save(cache, self.mat)
 

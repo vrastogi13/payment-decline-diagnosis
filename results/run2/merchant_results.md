@@ -7,6 +7,6 @@ Merchants: 30; planted patterns: 51.
 | A | 82.1% | 62.7% | 71.1% | 75.0% | 100.0% | 65.2% | 66.7% |
 | B | n/a | 0.0% | n/a | 0.0% | n/a | 0.0% | n/a |
 | C | 20.4% | 19.6% | 20.0% | 100.0% | 80.0% | 13.0% | n/a |
-| D | 41.3% | 60.8% | 49.2% | 75.0% | 77.4% | 47.8% | 100.0% |
+| D | 45.5% | 68.6% | 54.7% | 75.0% | 77.1% | 47.8% | 100.0% |
 
 Revenue patterns are ranked by recoverable amount. Risk patterns (retrying hard declines, excessive soft retries, billing customers who revoked recurring payments) count toward detection and action accuracy but are not ranked.
