@@ -18,12 +18,12 @@ No cardholder, merchant or company data is included.
 | `kb_documents.jsonl` | 213 retrieval documents generated from the knowledge base (variant D) |
 | `benchmark_scenarios_answer_key.csv` | 398 payment-level scenarios with answers; 198 are hard cases where context changes the right action |
 | `archive_visa15/` | The answer keys and retrieval documents of the first version, which used Visa's earlier limit of 15 attempts |
-| `Decline_Study_Labeling_Varun.xlsx` | The blank workbook given to the independent expert (25 timed and 75 labeling scenarios, no answers) |
+| `Decline_Study_Labeling_Expert.xlsx` | The blank workbook given to the independent expert (25 timed and 75 labeling scenarios, no answers) |
 | `merchant_transactions.csv` | 44,341 synthetic stored-card transactions for 30 merchants over 90 days |
 | `merchant_profiles.csv` | Merchant type, region and size |
 | `merchant_answer_key.csv` | The 51 planted decline patterns per merchant, with revenue ranking and risk flags; 4 merchants are clean |
 | `system_prompt.txt`, `merchant_system_prompt.txt` | The prompts shared by all model variants |
-| `gen_benchmark.py`, `gen_merchants.py`, `make_varun_workbook.py`, `build_training_data.py` | Generators for all of the data above (fixed random seeds) |
+| `gen_benchmark.py`, `gen_merchants.py`, `make_expert_workbook.py`, `build_training_data.py` | Generators for all of the data above (fixed random seeds) |
 | `run_variants.py` | Runs model variants B, C and D against any OpenAI-compatible API |
 | `score_decline_benchmark.py` | Baselines (variant A), answer parsing, scoring, merchant scoring, averaging over runs, expert agreement |
 | `raw/` | Every model output from the three runs of each variant, with latency and token counts |
@@ -101,7 +101,7 @@ The data files are already in the repository; these commands recreate them exact
 python gen_benchmark.py decline_kb_schema.sql decline_kb_seed.sql .
 python gen_merchants.py .
 python build_training_data.py decline_kb_schema.sql decline_kb_seed.sql .
-python make_varun_workbook.py . decline_kb_schema.sql decline_kb_seed.sql Decline_Study_Labeling_Varun.xlsx
+python make_expert_workbook.py . decline_kb_schema.sql decline_kb_seed.sql Decline_Study_Labeling_Expert.xlsx
 ```
 
 ## Notes

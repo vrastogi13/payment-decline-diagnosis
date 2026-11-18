@@ -214,15 +214,15 @@ timed = hard_ids[:13] + std_ids[:12]
 label = hard_ids[13:51] + std_ids[12:49]
 rng.shuffle(timed); rng.shuffle(label)
 for s in scen:
-    s['varun_set'] = 'timed' if s['scenario_id'] in timed else ('labeling' if s['scenario_id'] in label else '')
+    s['expert_set'] = 'timed' if s['scenario_id'] in timed else ('labeling' if s['scenario_id'] in label else '')
 
-fields = ['scenario_id', 'varun_set', 'difficulty', 'hard_case_type', 'question', 'merchant_report', 'network', 'code_source',
+fields = ['scenario_id', 'expert_set', 'difficulty', 'hard_case_type', 'question', 'merchant_report', 'network', 'code_source',
           'response_code', 'advice_code', 'transaction_type', 'merchant_type', 'amount', 'currency', 'card_type', 'card_region',
           'attempt_number', 'previous_attempt', 'retries_last_30_days',
           'answer_category', 'answer_action', 'answer_retry', 'answer_escalate', 'answer_retry_guidance', 'answer_rule',
           'answer_explanation', 'answer_cardholder_message', 'response_code_id', 'advice_code_id']
 with open(f'{OUT}/benchmark_scenarios_answer_key.csv', 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=fields, extrasaction='ignore'); w.writeheader(); w.writerows(scen)
-json.dump({'timed': timed, 'labeling': label}, open(f'{OUT}/varun_sets.json', 'w'))
+json.dump({'timed': timed, 'labeling': label}, open(f'{OUT}/expert_sets.json', 'w'))
 json.dump(scen, open(f'{OUT}/_scenarios.json', 'w'), default=str)
 print(len(scen), 'scenarios;', len(hard_ids), 'hard;', 'timed', len(timed), 'labeling', len(label))

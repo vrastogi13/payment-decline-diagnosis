@@ -1,4 +1,4 @@
-"""Build Varun's labeling workbook. Usage: python make_varun_workbook.py <out_dir> <schema.sql> <seed.sql> <xlsx_path>"""
+"""Build Independent Expert's labeling workbook. Usage: python make_expert_workbook.py <out_dir> <schema.sql> <seed.sql> <xlsx_path>"""
 import sys, json
 import duckdb
 from openpyxl import Workbook
@@ -8,7 +8,7 @@ from openpyxl.utils import get_column_letter
 
 OUT, SCHEMA, SEED, XLSX = sys.argv[1:5]
 scen = {s['scenario_id']: s for s in json.load(open(f'{OUT}/_scenarios.json'))}
-sets = json.load(open(f'{OUT}/varun_sets.json'))
+sets = json.load(open(f'{OUT}/expert_sets.json'))
 db = duckdb.connect(); db.execute(open(SCHEMA).read()); db.execute(open(SEED).read())
 cats = db.execute('select category, description from decline_category order by category').fetchall()
 acts = db.execute('select action, description, actor from recommended_action order by action').fetchall()
@@ -28,7 +28,7 @@ lines = [
  ('Decline diagnosis study: expert labeling', True),
  ('Thank you for helping. This workbook has two parts and should take about 3 to 4 hours in total.', False),
  ('', False),
- ('Please do Part 1 before you open Part 2, and do not discuss the scenarios with Vaibhav until you have finished both.', True),
+ ('Please do Part 1 before you open Part 2, and do not discuss the scenarios with Author until you have finished both.', True),
  ('', False),
  ('Part 1: Timed diagnosis (25 scenarios)', True),
  ('Each row is a declined card payment with the question a support agent might ask. Diagnose it the way you would at work, using any references you normally use (network documentation, processor guides, search).', False),
@@ -48,7 +48,7 @@ lines = [
  ('"Retries in last 30 days" counts earlier attempts on this card by this merchant.', False),
  ('All scenarios are synthetic. No real cardholder or merchant data is included.', False),
  ('', False),
- ('When you finish, save the file and send it back to Vaibhav.', True),
+ ('When you finish, save the file and send it back to Author.', True),
 ]
 for i, (t, bold) in enumerate(lines, 1):
     c = ws.cell(row=i, column=1, value=t); c.font = Font(name=F, size=12 if i == 1 else 10, bold=bold); c.alignment = Alignment(wrap_text=True, vertical='top')

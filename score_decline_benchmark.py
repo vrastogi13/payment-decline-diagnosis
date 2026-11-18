@@ -19,8 +19,8 @@ Commands
   score-merchants  Score the merchant-level test (pattern detection, actions and ranking).
       python score_decline_benchmark.py score-merchants --key merchant_answer_key.csv --pred E=E_merchants.csv --out results_dir
 
-  agreement        Compare Varun's returned workbook with the answer key (Cohen's kappa) and summarise his timed part.
-      python score_decline_benchmark.py agreement --key KEY.csv --workbook Varun.xlsx --out results_dir
+  agreement        Compare Expert's returned workbook with the answer key (Cohen's kappa) and summarise his timed part.
+      python score_decline_benchmark.py agreement --key KEY.csv --workbook Expert.xlsx --out results_dir
 
 Prediction file format (CSV, one row per scenario; JSONL with the same fields also works)
   scenario_id          required, e.g. DB-001
@@ -265,12 +265,12 @@ def cmd_agreement(a):
             k = key[r['Scenario ID']]
             dis.append(dict(scenario_id=r['Scenario ID'], hard_case_type=k['hard_case_type'], network=k['network'],
                             response_code=k['response_code'], advice_code=k['advice_code'],
-                            key_category=g1, varun_category=v1, key_action=g2, varun_action=v2,
-                            varun_confidence=r.get('Confidence') or '', varun_notes=r.get('Notes') or '', resolution=''))
+                            key_category=g1, expert_category=v1, key_action=g2, expert_action=v2,
+                            expert_confidence=r.get('Confidence') or '', expert_notes=r.get('Notes') or ''))
     if dis:
-        with open(f'{a.out}/disagreements_to_resolve.csv', 'w', newline='') as f:
+        with open(f'{a.out}/disagreements.csv', 'w', newline='') as f:
             w = csv.DictWriter(f, fieldnames=list(dis[0])); w.writeheader(); w.writerows(dis)
-    L += ['', f'Disagreements to resolve: {len(dis)} (see disagreements_to_resolve.csv).']
+    L += ['', f'Disagreements with the answer key: {len(dis)} (see disagreements.csv).']
     timed = [r for r in rows('Part 1 Timed') if r.get('Scenario ID') in key and r.get('Minutes taken') not in (None, '')]
     if timed:
         mins = [float(r['Minutes taken']) for r in timed]
