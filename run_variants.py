@@ -3,6 +3,10 @@
 Variant B: no tools. The model sees the question and the merchant's description only.
 Variant C: tools. The model can call get_payment_record (payment test) or analyze_merchant (merchant test).
 Variant D: as C, plus search_decline_docs, which returns the top 5 knowledge-base documents by embedding similarity.
+Variant E: as D, plus the evidence check in evidence_check.py. In the payment test the answer gains an Evidence line citing
+           the record fields and documents it rests on; an answer that fails the check is escalated to an engineer. In the
+           merchant test a finding whose evidence is not backed by the tool results is dropped. The check sees exactly the
+           tool results of the session, and both the model's answer and the checked answer are saved.
 
 Setup (works on an Intel Mac; nothing runs on a GPU locally):
     pip install openai duckdb numpy            # all variants
@@ -23,6 +27,7 @@ Alibaba Cloud Model Studio (if your region offers qwen3-8b): add --dashscope to 
 Payment-level test (writes raw JSONL for: score_decline_benchmark.py parse):
     python run_variants.py payments --variant B --run 1 --out raw/B_run1.jsonl
     python run_variants.py payments --variant D --run 1 --out raw/D_run1.jsonl --embed local
+    python run_variants.py payments --variant E --run 1 --out raw/E_run1.jsonl --embed local
 
 Merchant-level test (writes a prediction CSV for: score_decline_benchmark.py score-merchants):
     python run_variants.py merchants --variant C --run 1 --out raw/C_merchants_run1.csv
@@ -45,6 +50,9 @@ ACTIONS = ['retry_later', 'retry_with_authentication', 'update_credential', 'req
            'do_not_retry', 'stop_recurring', 'fix_request_data', 'check_merchant_setup', 'escalate_to_engineer']
 MAX_OUTPUT_TOKENS = 2048  # stops runaway generations; a full answer needs a few hundred tokens
 MAX_TURNS = 16  # tool-calling rounds before the agent must answer
+EVIDENCE_LINE = ('\nEvidence: <what your answer rests on, separated by semicolons: each record field you used as field=value, '
+                 'for example response_code=51; advice_code=MAC 03; retries_last_30_days=18, and doc=<title> for each '
+                 'document you used>')
 
 
 def path(name): return os.path.join(HERE, name)
@@ -274,17 +282,21 @@ def run_payments(args):
     api = client()
     scen = list(csv.DictReader(open(path('benchmark_scenarios_answer_key.csv'))))
     by_id = {s['scenario_id']: s for s in scen}
-    retr = Retriever(args.embed) if args.variant == 'D' else None
+    retr = Retriever(args.embed) if args.variant in ('D', 'E') else None
+    seen = {'docs': []}  # variant E: every document returned in the current session, for the evidence check
     def lookup(payment_id):
         if payment_id not in by_id: return {'error': 'payment not found'}
         rec = {f: by_id[payment_id][f] for f in RECORD_FIELDS}
-        if retr:  # variant D: the record arrives with the 5 most relevant knowledge-base documents attached
-            return {'record': rec, 'relevant_documentation': retr.for_queries(record_queries(rec))}
+        if retr:  # variants D and E: the record arrives with the 5 most relevant knowledge-base documents attached
+            docs = retr.for_queries(record_queries(rec)); seen['docs'] += docs
+            return {'record': rec, 'relevant_documentation': docs}
         return rec
-    handlers = {'get_payment_record': lookup,
-                'search_decline_docs': lambda query: retr.search(query)}
-    tools = {'B': [], 'C': [T_PAYMENT], 'D': [T_PAYMENT, T_DOCS]}[args.variant]
-    system = system_prompt(args)
+    def search(query):
+        docs = retr.search(query); seen['docs'] += docs; return docs
+    handlers = {'get_payment_record': lookup, 'search_decline_docs': search}
+    tools = {'B': [], 'C': [T_PAYMENT], 'D': [T_PAYMENT, T_DOCS], 'E': [T_PAYMENT, T_DOCS]}[args.variant]
+    system = system_prompt(args, EVIDENCE_LINE if args.variant == 'E' else '')
+    if args.variant == 'E': import evidence_check
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     skip = done_ids(args.out, 'scenario_id')
     todo = [s for s in scen if s['scenario_id'] not in skip][:args.limit or None]
@@ -294,11 +306,18 @@ def run_payments(args):
         for i, s in enumerate(todo, 1):
             user = f"{s['question']}\nMerchant's description: {s['merchant_report']}"
             if args.variant != 'B': user += f"\nPayment ID: {s['scenario_id']}"
-            t0 = time.time()
+            t0 = time.time(); seen['docs'] = []
             out, tin, tout, calls = chat(api, system, user, tools, handlers, args, label=f"{s['scenario_id']}_{args.variant}_run{args.run}")
-            f.write(json.dumps(dict(scenario_id=s['scenario_id'], variant=args.variant, run=args.run, output=out,
-                                    latency_ms=round(1000 * (time.time() - t0)), tool_calls=calls, tokens_in=tin, tokens_out=tout,
-                                    cost_usd=round((tin * args.price_in + tout * args.price_out) / 1e6, 6))) + '\n'); f.flush()
+            row = dict(scenario_id=s['scenario_id'], variant=args.variant, run=args.run, output=out)
+            if args.variant == 'E':  # the checked answer is what gets scored; the model's own answer is kept beside it
+                rec = {k: s[k] for k in RECORD_FIELDS}
+                ok, why = evidence_check.check_payment(out, rec, seen['docs'], require_evidence=True)
+                row.update(output=out if ok else evidence_check.escalate(out, why), model_output=out,
+                           evidence_check='passed' if ok else 'failed', evidence_reasons=why,
+                           docs_returned=[d['title'] for d in seen['docs']])
+            row.update(latency_ms=round(1000 * (time.time() - t0)), tool_calls=calls, tokens_in=tin, tokens_out=tout,
+                       cost_usd=round((tin * args.price_in + tout * args.price_out) / 1e6, 6))
+            f.write(json.dumps(row) + '\n'); f.flush()
             print(f'{i}/{len(todo)} {s["scenario_id"]} tools={calls}', file=sys.stderr)
 
 
@@ -344,9 +363,10 @@ def run_merchants(args):
     merchants = [r['merchant_id'] for r in csv.DictReader(open(path('merchant_profiles.csv')))]
     profiles = {r['merchant_id']: r for r in csv.DictReader(open(path('merchant_profiles.csv')))}
     sql = SQL() if args.variant != 'B' else None
-    retr = Retriever(args.embed) if args.variant == 'D' else None
+    retr = Retriever(args.embed) if args.variant in ('D', 'E') else None
+    seen = []  # variant E: every tool result of the current session, for the evidence check
     def analyze(**kw):
-        res = sql.analyze(**kw)
+        res = sql.analyze(**kw); seen.append(res)
         if retr and kw.get('group_by') in ('response_code', 'advice_code') and res.get('rows'):
             # variant D: attach documentation for the codes that account for the most declined money (5 documents in all)
             col = 'response code' if kw['group_by'] == 'response_code' else 'merchant advice code'
@@ -354,7 +374,12 @@ def run_merchants(args):
             res['relevant_documentation'] = retr.for_queries([(f'{col} {c}', 2) for c in codes])
         return res
     handlers = {'analyze_merchant': analyze, 'search_decline_docs': lambda query: retr.search(query)}
-    tools = {'B': [], 'C': [T_SQL], 'D': [T_SQL, T_DOCS]}[args.variant]
+    tools = {'B': [], 'C': [T_SQL], 'D': [T_SQL, T_DOCS], 'E': [T_SQL, T_DOCS]}[args.variant]
+    if args.variant == 'E':
+        import evidence_check
+        kb = evidence_check.kb_codes()
+        flagged_path = args.out.rsplit('.', 1)[0] + '_flagged.csv'
+        new_flagged = not os.path.exists(flagged_path)
     system = merchant_system_prompt(args)
     skip = done_ids(args.out, 'merchant_id')
     todo = [m for m in merchants if m not in skip][:args.limit or None]
@@ -367,10 +392,18 @@ def run_merchants(args):
             p = profiles[m]
             user = (f"Merchant {m} ({p['merchant_type']}, {p['region']}) says too many stored-card payments are declining. "
                     f"What is going wrong, and what should they fix first? Answer only with Finding lines.")
-            t0 = time.time()
+            t0 = time.time(); seen.clear()
             out, tin, tout, calls = chat(api, system, user, tools, handlers, args, label=f'{m}_{args.variant}_run{args.run}')
+            extra = {}
+            if args.variant == 'E':
+                kept, flagged = evidence_check.check_merchant(m, out, seen, kb)
+                extra = dict(findings_kept=sum(1 for k in kept if k['pattern'] != 'none'), findings_dropped=flagged)
+                with open(flagged_path, 'a', newline='') as ff:
+                    fw = csv.DictWriter(ff, fieldnames=['merchant_id', 'pattern', 'action', 'revenue_rank', 'evidence', 'reasons'])
+                    if new_flagged: fw.writeheader(); new_flagged = False
+                    fw.writerows(flagged)
             raw.write(json.dumps(dict(merchant_id=m, variant=args.variant, run=args.run, output=out, latency_ms=round(1000 * (time.time() - t0)),
-                                      tool_calls=calls, tokens_in=tin, tokens_out=tout)) + '\n')
+                                      tool_calls=calls, tokens_in=tin, tokens_out=tout, **extra)) + '\n')
             rows = []
             for line in out.splitlines():
                 line = re.sub(r'^[\s>*#`\-\d.)]*', '', line.replace('**', '').replace('`', ''))  # tolerate markdown bullets and bold
@@ -381,6 +414,7 @@ def run_merchants(args):
                     rows.append(dict(merchant_id=m, pattern=pat, action=parts[1].lower().replace(' ', '_'), revenue_rank=rank,
                                      evidence=parts[3].strip().rstrip('|').strip()))
             if any(r['pattern'] != 'none' for r in rows): rows = [r for r in rows if r['pattern'] != 'none']  # 'none' beside real findings is ignored
+            if args.variant == 'E': rows = [r for r in kept if r['pattern'] != 'none']  # only findings that passed the evidence check
             w.writerows(rows or [dict(merchant_id=m, pattern='none', action='', revenue_rank='', evidence='')]); f.flush(); raw.flush()
             print(f'{i}/{len(todo)} {m} findings={len(rows)} tools={calls}', file=sys.stderr)
 
@@ -388,7 +422,7 @@ def run_merchants(args):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('test', choices=['payments', 'merchants'])
-    ap.add_argument('--variant', choices=['B', 'C', 'D'], required=True)
+    ap.add_argument('--variant', choices=['B', 'C', 'D', 'E'], required=True)
     ap.add_argument('--run', type=int, default=1)
     ap.add_argument('--out', required=True)
     ap.add_argument('--embed', choices=['local', 'api'], default='local', help='variant D: embed locally or with the provider')

@@ -19,12 +19,14 @@ No cardholder, merchant or company data is included.
 | `benchmark_scenarios_answer_key.csv` | 398 payment-level scenarios with answers; 198 are hard cases where context changes the right action |
 | `archive_visa15/` | The answer keys and retrieval documents of the first version, which used Visa's earlier limit of 15 attempts |
 | `Decline_Study_Labeling_Expert.xlsx` | The blank workbook given to the independent expert (25 timed and 75 labeling scenarios, no answers) |
+| `expert/` | The expert's returned workbook (`expert_labels.xlsx`), agreement with the answer key (`agreement.md`) and every disagreement (`disagreements.csv`), reported in Section 7.6 |
 | `merchant_transactions.csv` | 44,341 synthetic stored-card transactions for 30 merchants over 90 days |
 | `merchant_profiles.csv` | Merchant type, region and size |
 | `merchant_answer_key.csv` | The 51 planted decline patterns per merchant, with revenue ranking and risk flags; 4 merchants are clean |
 | `system_prompt.txt`, `merchant_system_prompt.txt` | The prompts shared by all model variants |
 | `gen_benchmark.py`, `gen_merchants.py`, `make_expert_workbook.py`, `build_training_data.py` | Generators for all of the data above (fixed random seeds) |
-| `run_variants.py` | Runs model variants B, C and D against any OpenAI-compatible API |
+| `run_variants.py` | Runs model variants B, C, D and E against any OpenAI-compatible API |
+| `evidence_check.py` | The evidence check used by variant E, and an offline mode for checking saved outputs |
 | `score_decline_benchmark.py` | Baselines (variant A), answer parsing, scoring, merchant scoring, averaging over runs, expert agreement |
 | `raw/` | Every model output from the three runs of each variant, with latency and token counts |
 | `results/` | Scores per run and averaged over runs (`results/averaged_results.md`) |
@@ -70,6 +72,7 @@ for r in 1 2 3; do
     --pred A=A_merchants.csv --pred B=raw/B_merchants_run$r.csv --pred C=raw/C_merchants_run$r.csv --pred D=raw/D_merchants_run$r.csv --out results/run$r
 done
 python score_decline_benchmark.py average-runs --results results
+python score_decline_benchmark.py agreement --key benchmark_scenarios_answer_key.csv --workbook expert/expert_labels.xlsx --out expert
 ```
 
 ### 2. Run the models again
@@ -93,6 +96,30 @@ and the rerun of variant D, used about 26 million tokens in 12,400 requests and 
 To test a different model, change `LLM_MODEL` (and `LLM_BASE_URL` for another provider). Variant D embeds the
 retrieval documents on the CPU the first time it runs (`--embed local`); `--embed api` uses the provider's embedding endpoint instead.
 
+### Evidence check (variant E)
+
+`evidence_check.py` is a deterministic validator that admits an answer only if its claims are backed by tool results.
+In the payment test the answer gains an Evidence line (`response_code=51; advice_code=MAC 03; doc=<title>`); every cited
+field must match the record, every cited document must have been returned, and every code, network, count, region and card
+type stated in the explanation must be in the record or the returned documents. An answer that fails is escalated to an
+engineer with the reasons attached. In the merchant test every number in a finding's evidence must appear in a tool result,
+the codes it cites must be of a kind that shows the pattern, and the evidence must not deny the pattern; failing findings are
+dropped. Rules are listed at the top of `evidence_check.py`.
+
+Run variant E (as variant D plus the check, three runs):
+
+```bash
+for r in 1 2 3; do
+  python run_variants.py payments  --openrouter-provider $P --variant E --run $r --out raw/E_run$r.jsonl
+  python run_variants.py merchants --openrouter-provider $P --variant E --run $r --out raw/E_merchants_run$r.csv
+  python score_decline_benchmark.py parse --raw raw/E_run$r.jsonl --out E_run$r.csv
+done
+```
+
+Then score as in step 1 with `--pred E=E_run$r.csv` and `--pred E=raw/E_merchants_run$r.csv` added. Each E output keeps the
+model's own answer (`model_output`) beside the checked one, with the check's verdict and reasons; dropped merchant findings
+are in `raw/E_merchants_run*_flagged.csv`. `results/evidence_check_offline/` applies the same check to D's published outputs.
+
 ### 3. Regenerate the data
 
 The data files are already in the repository; these commands recreate them exactly.
@@ -114,6 +141,7 @@ python make_expert_workbook.py . decline_kb_schema.sql decline_kb_seed.sql Decli
   Table 7-2): at most 20 authorization attempts per card in 30 days for decline categories 2, 3 and 4, and none for category 1.
   Visa raised the limit from 15 to 20 on 25 May 2025. The 40 retry-limit scenarios have 15 to 24 earlier attempts, so half are
   beyond the limit and half are close to it but still allowed.
+- **Expert files.** In both workbooks the author's first name in two instruction lines is replaced with "the author"; the expert's answers and times are unchanged.
 - **Hallucination flags** are automated and only detect codes that do not exist on the scenario's network.
   Misreadings of real codes appear as category errors instead.
 - **Card-network documentation changes.** The knowledge base is a snapshot of public sources as of 2026; each code links to its source.
@@ -122,7 +150,7 @@ python make_expert_workbook.py . decline_kb_schema.sql decline_kb_seed.sql Decli
 
 ```
 Rastogi, V. (2026). Agentic AI for Payment Decline Diagnosis.
-Data and code: https://github.com/vrastogi13/payment-decline-diagnosis, archived at Zenodo, DOI [DOI].
+Data and code: https://github.com/vrastogi13/payment-decline-diagnosis, archived at Zenodo, https://doi.org/10.5281/zenodo.24328510
 ```
 
 ## License
