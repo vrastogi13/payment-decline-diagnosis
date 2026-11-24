@@ -1,0 +1,10 @@
+scenario_id,reasons
+DB-019,"mentions code 63, which is not in the record or the documents returned"
+DB-080,refers to a prepaid card but the card type is Credit
+DB-134,names Mastercard but the payment ran on Discover
+DB-140,refers to Europe but the card region is United States
+DB-216,"mentions code 63, which is not in the record or the documents returned"
+DB-220,"mentions code 63, which is not in the record or the documents returned"
+DB-245,refers to a prepaid card but the card type is Credit
+DB-376,"mentions code 63, which is not in the record or the documents returned"
+DB-382,"mentions code 63, which is not in the record or the documents returned"
