@@ -121,7 +121,8 @@ done
 
 Then score as in step 1 with `--pred E=E_run$r.csv` and `--pred E=raw/E_merchants_run$r.csv` added. Each E output keeps the
 model's own answer (`model_output`) beside the checked one, with the check's verdict and reasons; dropped merchant findings
-are in `raw/E_merchants_run*_flagged.csv`. `results/evidence_check_offline/` applies the same check to D's published outputs.
+are in `raw/E_merchants_run*_flagged.csv`. `results/evidence_check_offline/` applies the same check to D's published outputs; the check's
+rules were tuned on those outputs, so treat these results as exploratory and variant E as the clean test.
 
 ### 3. Regenerate the data
 
