@@ -27,13 +27,14 @@ No cardholder, merchant or company data is included.
 | `gen_benchmark.py`, `gen_merchants.py`, `make_expert_workbook.py`, `build_training_data.py` | Generators for all of the data above (fixed random seeds) |
 | `run_variants.py` | Runs model variants B, C, D and E against any OpenAI-compatible API |
 | `evidence_check.py` | The evidence check used by variant E, and an offline mode for checking saved outputs |
+| `results/variant_E/` | Variant E scores per run and a summary; `cardholder_keyword_check.py` compares cardholder messages of D and E |
 | `score_decline_benchmark.py` | Baselines (variant A), answer parsing, scoring, merchant scoring, averaging over runs, expert agreement |
 | `raw/` | Every model output from the three runs of each variant, with latency and token counts |
 | `results/` | Scores per run and averaged over runs (`results/averaged_results.md`) |
 | `explanation_review_sample.csv` | The manual review of 90 sampled explanations reported in Section 7.3 |
 | `finetune_train.jsonl`, `finetune_val.jsonl` | Chat-format training examples from the same knowledge base. Not used in this study; provided for the fine-tuning comparison left to future work |
 
-## The four variants
+## The five variants
 
 | Variant | What it sees | Domain knowledge |
 | --- | --- | --- |
@@ -41,12 +42,14 @@ No cardholder, merchant or company data is included.
 | B. LLM without tools | Question and the merchant's description | Base model only |
 | C. LLM with tools | As B, plus the authorization record (payment test) or an aggregate analysis tool (merchant test) | Base model only |
 | D. LLM with tools and retrieval | As C, plus the 5 most relevant knowledge-base documents attached to each tool result | Retrieved at query time |
+| E. LLM with tools, retrieval and evidence check | As D; the payment answer must end with an Evidence line citing the record fields and documents it used, and `evidence_check.py` verifies it | Retrieved at query time; citations checked deterministically |
 
-Variants B to D use Qwen3.5-9B (`qwen/qwen3.5-9b`) through OpenRouter, pinned to DeepInfra's unquantized BF16 deployment,
+Variants B to E use Qwen3.5-9B (`qwen/qwen3.5-9b`) through OpenRouter, pinned to DeepInfra's unquantized BF16 deployment,
 temperature 0, thinking disabled, at most 2,048 output tokens per call. Retrieval uses Qwen3-Embedding-0.6B
 (Hugging Face revision `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3`). Variants B and C were run on 5 and 6 November 2026 and variant D on 11 and 12 November 2026, after the
 benchmark was updated to Visa's current reattempt limit (variants B and C were rescored against the updated key; they see
-neither the answer key nor the retrieval documents, so the update does not change their outputs).
+neither the answer key nor the retrieval documents, so the update does not change their outputs). Variant E was run on
+22 and 23 November 2026 with the same model, provider and settings as D.
 
 ## Reproducing the paper
 
@@ -146,11 +149,19 @@ python make_expert_workbook.py . decline_kb_schema.sql decline_kb_seed.sql Decli
   Misreadings of real codes appear as category errors instead.
 - **Card-network documentation changes.** The knowledge base is a snapshot of public sources as of 2026; each code links to its source.
 
+## Versions
+
+- **v1.1** adds the evidence check and variant E, and restores `benchmark_scenarios_answer_key.csv`: in v1.0 a
+  spreadsheet save had removed the leading zeros of 81 response codes (05 became 5) and trailing zeros in the amount column.
+  Variants A to D were run on the intact file, and the scorer reads both forms identically, so no published score changes.
+- **v1.0** data and code for variants A to D.
+
 ## Citation
 
 ```
-Rastogi, V. (2026). Agentic AI for Payment Decline Diagnosis.
-Data and code: https://github.com/vrastogi13/payment-decline-diagnosis, archived at Zenodo, https://doi.org/10.5281/zenodo.24328510
+Rastogi, V. (2026). Agentic AI for Payment Decline Diagnosis: What the Agent Needs, and What It Still Misses.
+Data and code: https://github.com/vrastogi13/payment-decline-diagnosis, archived at Zenodo
+(v1.0: https://doi.org/10.5281/zenodo.24328510; later versions are listed on the same Zenodo record)
 ```
 
 ## License
