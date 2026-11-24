@@ -161,8 +161,8 @@ python make_expert_workbook.py . decline_kb_schema.sql decline_kb_seed.sql Decli
 
 ```
 Rastogi, V. (2026). Agentic AI for Payment Decline Diagnosis: What the Agent Needs, and What It Still Misses.
-Data and code: https://github.com/vrastogi13/payment-decline-diagnosis, archived at Zenodo
-(v1.0: https://doi.org/10.5281/zenodo.24328510; later versions are listed on the same Zenodo record)
+Data and code: https://github.com/vrastogi13/payment-decline-diagnosis, archived at Zenodo: https://doi.org/10.5281/zenodo.24328509 (all versions; v1.1 is
+https://doi.org/10.5281/zenodo.24487924)
 ```
 
 ## License
